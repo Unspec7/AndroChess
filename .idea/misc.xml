@@ -24,6 +24,13 @@
       </value>
     </option>
   </component>
+  <component name="ProjectResources">
+    <resource url="http://creativecommons.org/ns#" location="$PROJECT_DIR$" />
+    <resource url="http://purl.org/dc/elements/1.1/" location="$PROJECT_DIR$" />
+    <resource url="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" location="$PROJECT_DIR$" />
+    <resource url="http://www.inkscape.org/namespaces/inkscape" location="$PROJECT_DIR$" />
+    <resource url="http://www.w3.org/1999/02/22-rdf-syntax-ns#" location="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
