@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">AndroChess</string>
     <string name="turn_counter">Turn Tracker</string>
+    <string name="background_image">Background</string>
+    <string name="chessboard">Chessboard</string>
 </resources>
