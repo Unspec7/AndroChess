@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroChess</string>
+    <string name="turn_counter">Turn Tracker</string>
 </resources>
