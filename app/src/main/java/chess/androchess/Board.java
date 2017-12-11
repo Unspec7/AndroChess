@@ -1,8 +1,8 @@
-package chess.androchess;
+/**@author Jeff
+ * @author Brian
+ * This is the main board file. It controls most of the piece movement and holds the board itself*/
 
-/**
- * Created by Brian on 12/10/2017.
- */
+package chess.androchess;
 
 public class Board {
     Piece[][] board;
@@ -231,6 +231,7 @@ public class Board {
 
             if (check(blackTurn, false, 0, 0)) {
                 if (checkmate(blackTurn)) {
+                    checkmateDetected = true;
                     printBoard();
                     System.out.println("Checkmate");
                     System.out.println("");
@@ -240,7 +241,6 @@ public class Board {
                     else{
                         System.out.println("White wins");
                     }
-                    System.exit(0);
                 } else {
                     System.out.println("Check");
                 }

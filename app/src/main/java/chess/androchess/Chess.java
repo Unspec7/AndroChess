@@ -3,11 +3,26 @@ package chess.androchess;
 /**
  * Created by Brian on 12/10/2017.
  */
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+/**@author Jeff
+ * @author Brian
+ * Where chess is played. Moves are "translated" from raw input into numbers*/
 public class Chess {
     public static Board board;
-    public static void main (String [] args) {
+
+    public static void main (String [] args) throws IOException{
+        File recording = new File ("a.txt");
+        PrintWriter writer = new PrintWriter("a.txt");
+
         newGame();
         boolean blackTurn = false;
         boolean drawAttempt=false;
@@ -34,6 +49,10 @@ public class Chess {
                 }
             }
             if (board.move(input, blackTurn)){
+                writer.println(input);
+                if (board.checkmateDetected) {
+                    break;
+                }
                 board.printBoard();
                 blackTurn = !blackTurn;
                 String inArr[] = input.split(" ");
@@ -46,8 +65,33 @@ public class Chess {
                 invalidMove();
                 continue;
             }
-
         }
+        writer.close();
+        System.out.println("Do you wish to save this game? (y/n)");
+        String answer = scanner.nextLine();
+        while(true){
+            if (answer.equals("y")) {
+                System.out.print("Save Recording As: ");
+                File newFile = new File (scanner.nextLine().concat(".txt"));
+                boolean success = recording.renameTo(newFile);
+
+                while (!success) {
+                    System.out.println("Error");
+                    newFile = new File (scanner.nextLine().concat(".txt"));
+                    success = recording.renameTo(newFile);
+                }
+                recording.renameTo(newFile);
+                break;
+            } else if (answer.equals("n")){
+                System.out.println("Game Not Saved");
+                break;
+            }
+            else {
+                System.out.println("Invalid");
+                answer = scanner.nextLine();
+            }
+        }
+        recording.delete();
         scanner.close();
     }
     public static void newGame(){
