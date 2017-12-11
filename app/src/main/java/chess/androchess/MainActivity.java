@@ -5,8 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
-    Chess currentGame;
+    Board currentGame;
     String selectedMove = "";
+    boolean blackTurn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,8 +15,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void beginGame(){
-        currentGame = new Chess();
+    public void beginGame(View view){
+        currentGame = new Board();
     }
 
     public void sendID(View view) {
@@ -25,8 +26,13 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             selectedMove += " " + coordinates;
-
+            boolean turn = currentGame.move(selectedMove, blackTurn);
+            if (turn){
+                //Successful move
+                blackTurn = !blackTurn;
+            }
+            //reset selected move to empty
+            selectedMove = "";
         }
-
     }
 }

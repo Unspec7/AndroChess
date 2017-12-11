@@ -6,7 +6,6 @@ package chess.androchess;
 
 public class Board {
     Piece[][] board;
-    Piece potentialKingslayer;
     public boolean checkmateDetected = false;
     public Piece kingInPeril = new King("black", 0, 0);
     public boolean enpassantReady = false;
