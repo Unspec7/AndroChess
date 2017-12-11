@@ -109,48 +109,56 @@
                 android:id="@+id/56"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/57"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/58"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/59"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/60"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/61"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/62"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/63"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -165,48 +173,56 @@
                 android:id="@+id/48"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/49"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/50"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/51"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/52"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/53"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/54"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/55"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -221,48 +237,56 @@
                 android:id="@+id/40"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/41"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/42"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/43"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/44"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/45"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/46"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/47"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -277,48 +301,56 @@
                 android:id="@+id/32"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/33"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/34"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/35"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/36"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/37"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/38"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/39"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -333,48 +365,56 @@
                 android:id="@+id/24"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/25"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/26"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/27"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/28"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/29"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/30"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/31"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -389,48 +429,58 @@
                 android:id="@+id/16"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/17"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
-                android:orientation="vertical" />
+                android:onClick="sendID"
+                android:orientation="vertical" >
+
+            </TableRow>
 
             <TableRow
                 android:id="@+id/18"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/19"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/20"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/21"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/22"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/23"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -445,48 +495,60 @@
                 android:id="@+id/8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
-                android:orientation="vertical" />
+                android:onClick="sendID"
+                android:orientation="vertical" >
+
+            </TableRow>
 
             <TableRow
                 android:id="@+id/9"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
-                android:orientation="vertical" />
+                android:onClick="sendID"
+                android:orientation="vertical" >
+
+            </TableRow>
 
             <TableRow
                 android:id="@+id/10"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/11"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/12"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/13"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/14"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/15"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
@@ -501,48 +563,56 @@
                 android:id="@+id/0"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
             <TableRow
                 android:id="@+id/7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:onClick="sendID"
                 android:orientation="vertical" />
 
         </TableRow>
