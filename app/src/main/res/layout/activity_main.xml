@@ -100,523 +100,729 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
-            android:id="@+id/h"
+            android:id="@+id/seven"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/56"
+                android:id="@+id/a8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a8" />
 
             <TableRow
-                android:id="@+id/57"
+                android:id="@+id/b8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b8" />
 
             <TableRow
-                android:id="@+id/58"
+                android:id="@+id/c8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c8" />
 
             <TableRow
-                android:id="@+id/59"
+                android:id="@+id/d8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d8" />
 
             <TableRow
-                android:id="@+id/60"
+                android:id="@+id/e8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e8" />
 
             <TableRow
-                android:id="@+id/61"
+                android:id="@+id/f8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f8" />
 
             <TableRow
-                android:id="@+id/62"
+                android:id="@+id/g8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g8" />
 
             <TableRow
-                android:id="@+id/63"
+                android:id="@+id/h8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h8" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/g"
+            android:id="@+id/six"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/48"
+                android:id="@+id/a7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a7" />
 
             <TableRow
-                android:id="@+id/49"
+                android:id="@+id/b7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b7" />
 
             <TableRow
-                android:id="@+id/50"
+                android:id="@+id/c7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c7" />
 
             <TableRow
-                android:id="@+id/51"
+                android:id="@+id/d7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d7" />
 
             <TableRow
-                android:id="@+id/52"
+                android:id="@+id/e7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e7" />
 
             <TableRow
-                android:id="@+id/53"
+                android:id="@+id/f7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f7" />
 
             <TableRow
-                android:id="@+id/54"
+                android:id="@+id/g7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g7" />
 
             <TableRow
-                android:id="@+id/55"
+                android:id="@+id/h7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h7" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/f"
+            android:id="@+id/five"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/40"
+                android:id="@+id/a6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a6" />
 
             <TableRow
-                android:id="@+id/41"
+                android:id="@+id/b6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b6" />
 
             <TableRow
-                android:id="@+id/42"
+                android:id="@+id/c6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c6" />
 
             <TableRow
-                android:id="@+id/43"
+                android:id="@+id/d6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d6" />
 
             <TableRow
-                android:id="@+id/44"
+                android:id="@+id/e6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e6" />
 
             <TableRow
-                android:id="@+id/45"
+                android:id="@+id/f6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f6" />
 
             <TableRow
-                android:id="@+id/46"
+                android:id="@+id/g6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g6" />
 
             <TableRow
-                android:id="@+id/47"
+                android:id="@+id/h6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h8" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/e"
+            android:id="@+id/four"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/32"
+                android:id="@+id/a5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a5" />
 
             <TableRow
-                android:id="@+id/33"
+                android:id="@+id/b5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b5" />
 
             <TableRow
-                android:id="@+id/34"
+                android:id="@+id/c5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c5" />
 
             <TableRow
-                android:id="@+id/35"
+                android:id="@+id/d5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d5" />
 
             <TableRow
-                android:id="@+id/36"
+                android:id="@+id/e5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e5" />
 
             <TableRow
-                android:id="@+id/37"
+                android:id="@+id/f5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f5" />
 
             <TableRow
-                android:id="@+id/38"
+                android:id="@+id/g5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g5" />
 
             <TableRow
-                android:id="@+id/39"
+                android:id="@+id/h5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h5" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/d"
+            android:id="@+id/three"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/24"
+                android:id="@+id/a4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a4" />
 
             <TableRow
-                android:id="@+id/25"
+                android:id="@+id/b4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b4" />
 
             <TableRow
-                android:id="@+id/26"
+                android:id="@+id/c4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c4" />
 
             <TableRow
-                android:id="@+id/27"
+                android:id="@+id/d4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d4" />
 
             <TableRow
-                android:id="@+id/28"
+                android:id="@+id/e4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e4" />
 
             <TableRow
-                android:id="@+id/29"
+                android:id="@+id/f4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f4" />
 
             <TableRow
-                android:id="@+id/30"
+                android:id="@+id/g4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g4" />
 
             <TableRow
-                android:id="@+id/31"
+                android:id="@+id/h4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h4" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/c"
+            android:id="@+id/two"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/16"
+                android:id="@+id/a3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a3" />
 
             <TableRow
-                android:id="@+id/17"
+                android:id="@+id/b3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" >
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/18"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b3" />
 
             <TableRow
-                android:id="@+id/19"
+                android:id="@+id/c3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c3" />
 
             <TableRow
-                android:id="@+id/20"
+                android:id="@+id/d3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d3" />
 
             <TableRow
-                android:id="@+id/21"
+                android:id="@+id/e3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e3" />
 
             <TableRow
-                android:id="@+id/22"
+                android:id="@+id/f3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f3" />
 
             <TableRow
-                android:id="@+id/23"
+                android:id="@+id/g3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g3" />
+
+            <TableRow
+                android:id="@+id/h3"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="sendID"
+                android:orientation="vertical"
+                android:tag="h3" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/b"
+            android:id="@+id/one"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/8"
+                android:id="@+id/a2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" >
-
-            </TableRow>
+                android:orientation="vertical"
+                android:tag="a2" />
 
             <TableRow
-                android:id="@+id/9"
+                android:id="@+id/b2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" >
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/10"
-                android:layout_width="47dp"
-                android:layout_height="47dp"
-                android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b2" />
 
             <TableRow
-                android:id="@+id/11"
+                android:id="@+id/c2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c2" />
 
             <TableRow
-                android:id="@+id/12"
+                android:id="@+id/d2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d2" />
 
             <TableRow
-                android:id="@+id/13"
+                android:id="@+id/e2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e2" />
 
             <TableRow
-                android:id="@+id/14"
+                android:id="@+id/f2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f2" />
 
             <TableRow
-                android:id="@+id/15"
+                android:id="@+id/g2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g2" />
+
+            <TableRow
+                android:id="@+id/h2"
+                android:layout_width="47dp"
+                android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="sendID"
+                android:orientation="vertical"
+                android:tag="h2" />
 
         </TableRow>
 
         <TableRow
-            android:id="@+id/a"
+            android:id="@+id/zero"
             android:layout_width="376dp"
             android:layout_height="47dp"
             android:orientation="horizontal">
 
             <TableRow
-                android:id="@+id/0"
+                android:id="@+id/a1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="a1" />
 
             <TableRow
-                android:id="@+id/1"
+                android:id="@+id/b1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="b1" />
 
             <TableRow
-                android:id="@+id/2"
+                android:id="@+id/c1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="c1" />
 
             <TableRow
-                android:id="@+id/3"
+                android:id="@+id/d1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="d1" />
 
             <TableRow
-                android:id="@+id/4"
+                android:id="@+id/e1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="e1" />
 
             <TableRow
-                android:id="@+id/5"
+                android:id="@+id/f1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="f1" />
 
             <TableRow
-                android:id="@+id/6"
+                android:id="@+id/g1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="g1" />
 
             <TableRow
-                android:id="@+id/7"
+                android:id="@+id/h1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
+                android:clickable="true"
+                android:focusable="true"
                 android:onClick="sendID"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:tag="h1" />
 
         </TableRow>
 
     </TableLayout>
+
+    <Button
+        android:id="@+id/begin"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Begin" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/begin"
+        tools:text="Replay" />
 
 </android.support.constraint.ConstraintLayout>
