@@ -583,6 +583,9 @@ public class Board {
         /**@author Jeff
          * Checks if the piece has king in check
          */
+        if (tempPiece.type == 'P') {
+            tempPiece.eating =true;
+        }
         //If it has a valid move to the king
         if (tempPiece.validMove(tempPiece.xpos, tempPiece.ypos, tempKing.xpos, tempKing.ypos) ){
             //Checks if the path is clear to the king for any piece that isn't a knight
@@ -596,6 +599,7 @@ public class Board {
         else{
             tempPiece.checkingKing = false;
         }
+        tempPiece.eating = false;
     }
 
     public Piece findKing(boolean blackTurn){
