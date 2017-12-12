@@ -60,7 +60,6 @@ public class Chess {
                 if (board.checkmateDetected) {
                     break;
                 }
-                board.printBoard();
                 blackTurn = !blackTurn;
                 String inArr[] = input.split(" ");
                 if (inArr.length == 3){
@@ -104,7 +103,6 @@ public class Chess {
     }
     public static void newGame(){
         board = new Board();
-        board.printBoard();
     }
     public static void Check(){
         System.out.println("Check");

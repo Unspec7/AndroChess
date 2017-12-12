@@ -39,6 +39,7 @@ public class Pawn extends Piece{
             }
         }
         if ( ( (deltaX == 0 && deltaY == 1 ) && !eating) || ( eating && deltaX == 1 && deltaY == 1)){
+
             eating=false;
             return true;
         }

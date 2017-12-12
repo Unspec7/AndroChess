@@ -9,4 +9,8 @@
     <string name="Resign">Resign</string>
     <string name="New_Game">New Game</string>
     <string name="Load_Replay">Load Replay</string>
+    <string name="blackTurn">Black turn</string>
+    <string name="whiteTurn">White turn</string>
+    <string name="blackWin">Black wins</string>
+    <string name="whiteWin">White wins</string>
 </resources>

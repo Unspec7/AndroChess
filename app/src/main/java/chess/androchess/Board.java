@@ -5,41 +5,17 @@
 package chess.androchess;
 
 public class Board {
-    Piece[][] board;
+    private Piece[][] board;
     public boolean checkmateDetected = false;
-    public Piece kingInPeril = new King("black", 0, 0);
-    public boolean enpassantReady = false;
-    public Piece doubleStepPawn = new Pawn("black", 0, 0);
+    private Piece kingInPeril = new King("black", 0, 0);
+    private boolean enpassantReady = false;
+    private Piece doubleStepPawn = new Pawn("black", 0, 0);
+    int winner = 0;
+
     public Board() {
         board = new Piece[8][8];
         newGame();
     }
-
-    public void printBoard() {
-        /**@author Brian
-         * Prints the board.
-         */
-        System.out.println();
-        for (int j = 7; j > -1; j--) {
-            for (int i = 0; i < 8; i++) {
-                if (board[i][j] != null){
-                    System.out.print(board[i][j].toString()+" ");
-                }
-                else{
-                    //Checking if black
-                    if(i % 2 == j % 2){
-                        System.out.print("## ");
-                    } else {
-                        System.out.print("   ");
-                    }
-                }
-            }
-            System.out.println(j+1);
-        }
-        System.out.println(" a  b  c  d  e  f  g  h");
-        System.out.println();
-    }
-
 
     public boolean move(String input, boolean blackTurn) {
         /**@author Brian
@@ -179,16 +155,18 @@ public class Board {
 
             board[oldX][oldY] = null;
             board[newX][newY] = temp;
+            board[newX][newY].xpos = newX;
+            board[newX][newY].ypos = newY;
             //Checks if you're putting your own
             //king in check with this move
 
             if (check(!blackTurn, false, 0, 0)){
+                temp.xpos = oldX;
+                temp.ypos = oldY;
                 board[newX][newY] = tempHold;
                 board[oldX][oldY] = temp;
                 return false;
             }
-            board[newX][newY].xpos = newX;
-            board[newX][newY].ypos = newY;
 
             if (board[newX][newY].color == 'w' && newY==7 && board[newX][newY].type == 'P') {
                 if (queening) {
@@ -231,21 +209,19 @@ public class Board {
             if (check(blackTurn, false, 0, 0)) {
                 if (checkmate(blackTurn)) {
                     checkmateDetected = true;
-                    printBoard();
                     System.out.println("Checkmate");
                     System.out.println("");
                     if (blackTurn){
-                        System.out.println("Black wins");
+                        winner = R.string.blackWin;
                     }
                     else{
-                        System.out.println("White wins");
+                        winner = R.string.whiteWin;
                     }
                 } else {
                     System.out.println("Check");
                 }
             }
             if ( stalemate(blackTurn) ){
-                printBoard();
                 System.out.println("Stalemate");
                 System.exit(0);
             }

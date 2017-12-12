@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
@@ -16,11 +17,14 @@ public class MainActivity extends AppCompatActivity {
     ImageView selector;
     FrameLayout selected;
     View movedPiece;
+    TextView turnCountText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        turnCountText = findViewById(R.id.turnCounter);
     }
 
     public void beginGame(View view){
@@ -36,6 +40,21 @@ public class MainActivity extends AppCompatActivity {
                 ContextCompat.getDrawable(getApplicationContext(),R.drawable.selection));
         createWhitePieces();
         createBlackPieces();
+        setTurnCount();
+    }
+
+    public void setTurnCount(){
+        if (currentGame.winner == 0){
+            if (blackTurn){
+                turnCountText.setText(getString(R.string.blackTurn));
+            }
+            else{
+                turnCountText.setText(getString(R.string.whiteTurn));
+            }
+        }
+        else{
+            turnCountText.setText(currentGame.winner);
+        }
     }
 
     public void sendID(View view) {
@@ -54,11 +73,13 @@ public class MainActivity extends AppCompatActivity {
                 if (turn) {
                     //Successful move
                     blackTurn = !blackTurn;
+                    setTurnCount();
                     //Remove everything
                     selected.removeAllViews();
                     //Draw new piece
                     current.removeAllViews();
                     current.addView(movedPiece);
+
                     System.out.println("Successful Move");
                 }
                 else{
