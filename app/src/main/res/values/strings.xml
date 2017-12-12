@@ -3,4 +3,10 @@
     <string name="turn_counter">Turn Tracker</string>
     <string name="background_image">Background</string>
     <string name="chessboard">Chessboard</string>
+    <string name="Undo">Undo</string>
+    <string name="AI_Move">AI Move</string>
+    <string name="Draw">Draw</string>
+    <string name="Resign">Resign</string>
+    <string name="New_Game">New Game</string>
+    <string name="Load_Replay">Load Replay</string>
 </resources>

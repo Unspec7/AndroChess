@@ -44,6 +44,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/Undo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Undo" />
@@ -54,6 +55,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/AI_Move"
         app:layout_constraintStart_toEndOf="@+id/Undo"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="AI Move" />
@@ -64,6 +66,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/Draw"
         app:layout_constraintEnd_toStartOf="@+id/Resign"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Draw" />
@@ -74,6 +77,7 @@
         android:layout_height="40dp"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/Resign"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Resign" />
@@ -807,23 +811,25 @@
 
     <Button
         android:id="@+id/begin"
-        android:layout_width="75dp"
+        android:layout_width="100dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:onClick="beginGame"
+        android:text="@string/New_Game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Begin" />
+        tools:text="New Game" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="75dp"
+        android:layout_width="115dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/Load_Replay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/begin"
-        tools:text="Replay" />
+        tools:text="Load Replay" />
 
 </android.support.constraint.ConstraintLayout>
