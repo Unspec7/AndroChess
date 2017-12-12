@@ -718,7 +718,7 @@ public class Board implements Serializable {
                 return 'l';
             }
     }*/
-    public void castle(Piece tempKing, Piece tempRook){
+    public void castle(Piece tempKing, Piece tempRook) {
         /**@author Jeff
          * Castling. Only fires if you can castle, so no need
          * for any checks
@@ -726,7 +726,7 @@ public class Board implements Serializable {
          * @param tempRook The rook you're trying to castle with
          */
         int tempX;
-        if (tempRook.xpos < tempKing.xpos){
+        if (tempRook.xpos < tempKing.xpos) {
             //Left side castle
             //Move castle
             board[tempRook.xpos][tempRook.ypos] = null;
@@ -743,8 +743,7 @@ public class Board implements Serializable {
             tempX = tempKing.xpos - 2;
             tempKing.xpos = tempX;
             board[tempX][tempKing.ypos] = tempKing;
-        }
-        else if (tempRook.xpos > tempKing.xpos){
+        } else if (tempRook.xpos > tempKing.xpos) {
             //Right side castle
             //Move castle
             board[tempRook.xpos][tempRook.ypos] = null;
@@ -763,7 +762,7 @@ public class Board implements Serializable {
             board[tempKing.xpos][tempKing.ypos] = tempKing;
         }
     }
-    /*
+
     public void randomMove(boolean blackTurn) {
         char team;
         if (blackTurn){
@@ -795,7 +794,6 @@ public class Board implements Serializable {
             input = oldRank+oldFile+" "+newRank+newFile;
         }
     }
-    */
 
     public void newGame() {
         /**@author Jeff
