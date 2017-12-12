@@ -8,9 +8,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import java.io.*;
 
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
+    Board undo;
     String selectedMove = "";
     boolean blackTurn;
     boolean gameStart = false;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView firstPiece;
     int second;
     ImageView secondPiece;
+    boolean undone = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         gameStart = true;
         blackTurn = false;
         currentGame = new Board();
+        undo = new Board();
         selector = new ImageView(this);
         selector.setImageDrawable(
                 ContextCompat.getDrawable(getApplicationContext(),R.drawable.selection));
@@ -59,21 +63,54 @@ public class MainActivity extends AppCompatActivity {
             turnCountText.setText(currentGame.winner);
         }
     }
-    public void undo(View view){
-        blackTurn = !blackTurn;
-        currentGame.undo();
-        FrameLayout oldFirst = findViewById(first);
-        FrameLayout oldSecond = findViewById(second);
-        oldSecond.removeView(firstPiece);
-        oldFirst.addView(firstPiece);
-        if (secondPiece != null) {
-            oldFirst.removeView(secondPiece);
-            oldSecond.addView(secondPiece);
+
+    public void copytoUndo() throws IOException, ClassNotFoundException{
+        //Copy
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(currentGame);
+        oos.flush();
+        oos.close();
+        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        //Paste
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        undo = (Board)ois.readObject();
+    }
+    public void copytoCurrent() throws IOException, ClassNotFoundException{
+        //Copy
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(undo);
+        oos.flush();
+        oos.close();
+        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        //Paste
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        currentGame = (Board)ois.readObject();
+    }
+
+    public void undo(View view) {
+        if (!undone) {
+            blackTurn = !blackTurn;
+            setTurnCount();
+            try{
+                copytoCurrent();
+            }
+            catch (ClassNotFoundException | IOException e) {
+                e.printStackTrace();
+            }
+            FrameLayout oldFirst = findViewById(first);
+            FrameLayout oldSecond = findViewById(second);
+            oldSecond.removeView(firstPiece);
+            oldFirst.addView(firstPiece);
+            if (secondPiece != null) {
+                oldFirst.removeView(secondPiece);
+                oldSecond.addView(secondPiece);
+            } else {
+                oldSecond.removeAllViews();
+            }
         }
-        else{
-            oldSecond.removeAllViews();
-        }
-        setTurnCount();
+        undone = true;
     }
 
     public void sendID(View view) {
@@ -88,6 +125,12 @@ public class MainActivity extends AppCompatActivity {
                 selected = current;
             } else {
                 selectedMove += " " + coordinates;
+                try{
+                    copytoUndo();
+                }
+                catch (ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
                 boolean turn = currentGame.move(selectedMove, blackTurn);
                 if (turn) {
                     //Successful move
@@ -107,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     //Draw new piece
                     current.removeAllViews();
                     current.addView(movedPiece);
+                    undone = false;
 
                     System.out.println("Successful Move");
                 }

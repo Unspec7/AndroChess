@@ -4,9 +4,10 @@
 
 package chess.androchess;
 
-public class Board {
+import java.io.Serializable;
+
+public class Board implements Serializable {
     private Piece[][] board;
-    private Piece[][] undo;
     public boolean checkmateDetected = false;
     private Piece kingInPeril = new King("black", 0, 0);
     private boolean enpassantReady = false;
@@ -18,10 +19,6 @@ public class Board {
         newGame();
     }
 
-    public void undo(){
-        board = undo;
-    }
-
     public boolean move(String input, boolean blackTurn) {
         /**@author Brian
          * Move engine.
@@ -29,8 +26,7 @@ public class Board {
          * @param blackTurn Keeps track of who's turn it is
          * @return boolean Returns weather or not it was successfully moved
          */
-        undo = new Piece[8][8];
-        undo = board;
+
         char turn;
         if (blackTurn) {
             turn = 'b';
@@ -767,6 +763,7 @@ public class Board {
             board[tempKing.xpos][tempKing.ypos] = tempKing;
         }
     }
+    /*
     public void randomMove(boolean blackTurn) {
         char team;
         if (blackTurn){
@@ -790,6 +787,7 @@ public class Board {
             newY = (int)Math.random()*8;
         }
     }
+    */
 
     public void newGame() {
         /**@author Jeff

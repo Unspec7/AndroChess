@@ -1,10 +1,12 @@
 package chess.androchess;
 
+import java.io.Serializable;
+
 /**
  * Created by Brian on 12/9/2017.
  */
 
-public abstract class Piece {
+public abstract class Piece implements Serializable {
     public boolean eating = false;
     public boolean movedYet = false;
     public boolean checkingKing = false;
