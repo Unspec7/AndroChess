@@ -1,5 +1,6 @@
 package chess.androchess;
 
+import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
 import java.io.*;
+import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     int second;
     ImageView secondPiece;
     boolean undone = false;
+    File recording = new File ("a.txt");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         turnCountText = findViewById(R.id.turnCounter);
     }
 
-    public void beginGame(View view){
+    public void beginGame(View view) {
         if (gameStart){
             clearBoard();
             currentGame = null;
@@ -48,6 +51,50 @@ public class MainActivity extends AppCompatActivity {
         createWhitePieces();
         createBlackPieces();
         setTurnCount();
+        try {
+            PrintWriter writer = new PrintWriter("a.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"saved");
+        directory.mkdir();
+        File recording = new File (directory.getAbsolutePath()+"/a.txt");
+    }
+
+    public void recording(File recording) {
+        try {
+            Scanner scanner = new Scanner();
+            writer.close();
+            System.out.println("Do you wish to save this game? (y/n)");
+            String answer = scanner.nextLine();
+
+
+            while(true){
+                if (answer.equals("y")) {
+                    System.out.print("Save Recording As: ");
+                    File newFile = new File (scanner.nextLine().concat(".txt"));
+                    boolean success = recording.renameTo(newFile);
+
+                    while (!success) {
+                        System.out.println("Error");
+                        newFile = new File (scanner.nextLine().concat(".txt"));
+                        success = recording.renameTo(newFile);
+                    }
+                    recording.renameTo(newFile);
+                    break;
+                } else if (answer.equals("n")){
+                    System.out.println("Game Not Saved");
+                    break;
+                }
+                else {
+                    System.out.println("Invalid");
+                    answer = scanner.nextLine();
+                }
+            }
+            recording.delete();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setTurnCount(){
@@ -155,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
                     current.removeAllViews();
                     current.addView(movedPiece);
                     undone = false;
-
+                    asdasdasasdfasdasdasdasdadasdasdasdasdasdasdas
                     System.out.println("Successful Move");
                 }
                 else{
