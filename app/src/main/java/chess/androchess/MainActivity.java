@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
                 //reset selected move to empty
                 selectedMove = "";
                 //Unselect
-
             }
         }
     }
