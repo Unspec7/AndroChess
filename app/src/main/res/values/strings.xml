@@ -15,4 +15,5 @@
     <string name="whiteWin">White wins</string>
     <string name="test">test</string>
     <string name="draw">Draw</string>
+    <string name="resigned">Resigned</string>
 </resources>

@@ -23,15 +23,17 @@ public class MainActivity extends AppCompatActivity {
 
     boolean blackTurn;
     boolean gameStart = false;
-    boolean drawOffered = false;
-    boolean drawAccepted = false;
-    boolean undone = false;
+    boolean drawOffered;
+    boolean drawAccepted;
+    boolean undone;
+    boolean resigned;
 
     FrameLayout selected;
 
     View movedPiece;
 
     TextView turnCountText;
+    TextView displayedMessage;
 
     ImageView firstPiece;
     ImageView secondPiece;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         turnCountText = findViewById(R.id.turnCounter);
+        displayedMessage = findViewById(R.id.message);
     }
 
     public void beginGame(View view) {
@@ -51,8 +54,13 @@ public class MainActivity extends AppCompatActivity {
             clearBoard();
             currentGame = null;
         }
+        resigned = false;
         gameStart = true;
         blackTurn = false;
+        gameStart = false;
+        drawOffered = false;
+        drawAccepted = false;
+        undone = false;
 
         //Creating game objects
         currentGame = new Board();
@@ -122,7 +130,10 @@ public class MainActivity extends AppCompatActivity {
             turnCountText.setText(getString(R.string.draw));
         }
         else if (currentGame.winner != 0){//Set winner
-            turnCountText.setText(currentGame.winner);
+            turnCountText.setText(getString(currentGame.winner));
+            if (resigned) {
+                displayedMessage.setText(getString(R.string.resigned));
+            }
         }
     }
 
@@ -228,17 +239,20 @@ public class MainActivity extends AppCompatActivity {
                         secondPiece = null;
                     }
 
-                    //Change turn
-                    blackTurn = !blackTurn;
-                    setTurnCount();
-
                     //Remove everything in the square its moving from
                     selected.removeAllViews();
 
                     //Draw new piece in the selected square
                     current.removeAllViews();
                     current.addView(movedPiece);
+
+                    //Change turn
+                    blackTurn = !blackTurn;
+                    setTurnCount();
+
+                    //Set variables
                     undone = false;
+                    drawOffered = false;
                     System.out.println("Successful Move");
                 }
                 else{
@@ -498,9 +512,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void draw(View view){
-        drawOffered = false;
         if (drawOffered){
-
+            drawAccepted = true;
+            gameStart = false;
         }
+        else{
+            drawOffered = true;
+        }
+    }
+
+    public void resign(View view){
+        if (blackTurn){
+            //White win
+            currentGame.winner = R.string.whiteWin;
+        }
+        else{
+            //Black win
+            currentGame.winner = R.string.blackWin;
+        }
+        gameStart = false;
+        resigned = true;
+        setTurnCount();
     }
 }
