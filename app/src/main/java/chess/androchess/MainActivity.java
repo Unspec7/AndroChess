@@ -18,7 +18,10 @@ public class MainActivity extends AppCompatActivity {
     FrameLayout selected;
     View movedPiece;
     TextView turnCountText;
-
+    int first;
+    ImageView firstPiece;
+    int second;
+    ImageView secondPiece;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,22 @@ public class MainActivity extends AppCompatActivity {
             turnCountText.setText(currentGame.winner);
         }
     }
+    public void undo(View view){
+        blackTurn = !blackTurn;
+        currentGame.undo();
+        FrameLayout oldFirst = findViewById(first);
+        FrameLayout oldSecond = findViewById(second);
+        oldSecond.removeView(firstPiece);
+        oldFirst.addView(firstPiece);
+        if (secondPiece != null) {
+            oldFirst.removeView(secondPiece);
+            oldSecond.addView(secondPiece);
+        }
+        else{
+            oldSecond.removeAllViews();
+        }
+        setTurnCount();
+    }
 
     public void sendID(View view) {
         if (gameStart) {
@@ -72,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
                 boolean turn = currentGame.move(selectedMove, blackTurn);
                 if (turn) {
                     //Successful move
+                    first = selected.getId();
+                    second = current.getId();
+                    firstPiece = (ImageView)selected.getChildAt(0);
+                    if (current.getChildCount() != 0) {
+                        secondPiece = (ImageView) current.getChildAt(0);
+                    }
+                    else{
+                        secondPiece = null;
+                    }
                     blackTurn = !blackTurn;
                     setTurnCount();
                     //Remove everything
