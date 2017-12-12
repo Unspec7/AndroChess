@@ -13,4 +13,5 @@
     <string name="whiteTurn">White turn</string>
     <string name="blackWin">Black wins</string>
     <string name="whiteWin">White wins</string>
+    <string name="test">test</string>
 </resources>
