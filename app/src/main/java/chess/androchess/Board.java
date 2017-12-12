@@ -6,6 +6,7 @@ package chess.androchess;
 
 public class Board {
     private Piece[][] board;
+    private Piece[][] undo;
     public boolean checkmateDetected = false;
     private Piece kingInPeril = new King("black", 0, 0);
     private boolean enpassantReady = false;
@@ -17,6 +18,10 @@ public class Board {
         newGame();
     }
 
+    public void undo(){
+        board = undo;
+    }
+
     public boolean move(String input, boolean blackTurn) {
         /**@author Brian
          * Move engine.
@@ -24,6 +29,8 @@ public class Board {
          * @param blackTurn Keeps track of who's turn it is
          * @return boolean Returns weather or not it was successfully moved
          */
+        undo = new Piece[8][8];
+        undo = board;
         char turn;
         if (blackTurn) {
             turn = 'b';
