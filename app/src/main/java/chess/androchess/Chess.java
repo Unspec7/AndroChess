@@ -4,15 +4,20 @@ package chess.androchess;
  * Created by Brian on 12/10/2017.
  */
 
+import android.os.Environment;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
 import java.util.Scanner;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+
 /**@author Jeff
  * @author Brian
  * Where chess is played. Moves are "translated" from raw input into numbers*/
@@ -20,9 +25,11 @@ public class Chess {
     public static Board board;
 
     public static void main (String [] args) throws IOException{
-        File recording = new File ("a.txt");
-        PrintWriter writer = new PrintWriter("a.txt");
 
+        PrintWriter writer = new PrintWriter("a.txt");
+        File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"saved");
+        directory.mkdir();
+        File recording = new File (directory.getAbsolutePath()+"/a.txt");
         newGame();
         boolean blackTurn = false;
         boolean drawAttempt=false;
@@ -69,6 +76,7 @@ public class Chess {
         writer.close();
         System.out.println("Do you wish to save this game? (y/n)");
         String answer = scanner.nextLine();
+
         while(true){
             if (answer.equals("y")) {
                 System.out.print("Save Recording As: ");
