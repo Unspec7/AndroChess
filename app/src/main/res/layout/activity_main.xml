@@ -56,6 +56,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:onClick="AI"
         android:text="@string/AI_Move"
         app:layout_constraintStart_toEndOf="@+id/Undo"
         app:layout_constraintTop_toTopOf="parent"

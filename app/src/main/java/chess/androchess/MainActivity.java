@@ -89,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
         currentGame = (Board)ois.readObject();
     }
 
+    public void AI(View view){
+        //currentGame.randomMove(blackTurn);
+    }
+
     public void undo(View view) {
         if (!undone) {
             blackTurn = !blackTurn;
