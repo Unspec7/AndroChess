@@ -364,7 +364,7 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="h8" />
+                android:tag="h6" />
 
         </TableRow>
 
