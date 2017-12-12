@@ -33,7 +33,7 @@ public class Pawn extends Piece{
         }
         if (!this.movedYet) {
             //First move
-            if (deltaX == 0 && ( deltaY == 1 || deltaY == 2 ) ){
+            if (deltaX == 0 && ( deltaY == 1 || deltaY == 2 ) && !eating){
                 eating = false;
                 return true;
             }
