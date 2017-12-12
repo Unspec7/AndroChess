@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     boolean blackTurn;
     boolean gameStart = false;
+    boolean oldGame;
     boolean drawOffered;
     boolean drawAccepted;
     boolean undone;
@@ -50,17 +51,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void beginGame(View view) {
-        if (gameStart){
+        if (oldGame){
             clearBoard();
             currentGame = null;
         }
+        oldGame = true;
         resigned = false;
         gameStart = true;
         blackTurn = false;
-        gameStart = false;
+        gameStart = true;
         drawOffered = false;
         drawAccepted = false;
         undone = false;
+        displayedMessage.setText("");
 
         //Creating game objects
         currentGame = new Board();
@@ -118,22 +121,31 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     public void setTurnCount(){
-        if (currentGame.winner == 0){
-            if (blackTurn){
-                turnCountText.setText(getString(R.string.blackTurn));
+        if (!currentGame.checkmateDetected){
+            if (drawAccepted){
+                turnCountText.setText(getString(R.string.draw));
+                gameStart = false;
             }
             else{
-                turnCountText.setText(getString(R.string.whiteTurn));
+                if (blackTurn){
+                    turnCountText.setText(getString(R.string.blackTurn));
+                }
+                else{
+                    turnCountText.setText(getString(R.string.whiteTurn));
+                }
             }
-        }
-        else if (drawAccepted){
-            turnCountText.setText(getString(R.string.draw));
-        }
-        else if (currentGame.winner != 0){//Set winner
-            turnCountText.setText(getString(currentGame.winner));
+            if (currentGame.check){
+                displayedMessage.setText(getString(R.string.check));
+            }
             if (resigned) {
                 displayedMessage.setText(getString(R.string.resigned));
+                turnCountText.setText(getString(currentGame.winner));
             }
+        }
+        else {//Set winner
+            gameStart = false;
+            turnCountText.setText(getString(currentGame.winner));
+            displayedMessage.setText(getString(R.string.checkmate));
         }
     }
 
@@ -517,8 +529,10 @@ public class MainActivity extends AppCompatActivity {
             gameStart = false;
         }
         else{
+            displayedMessage.setText(getString(R.string.offerDraw));
             drawOffered = true;
         }
+        setTurnCount();
     }
 
     public void resign(View view){

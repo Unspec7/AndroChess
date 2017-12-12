@@ -16,4 +16,7 @@
     <string name="test">test</string>
     <string name="draw">Draw</string>
     <string name="resigned">Resigned</string>
+    <string name="offerDraw">Draw?</string>
+    <string name="check">Check</string>
+    <string name="checkmate">Checkmate</string>
 </resources>
