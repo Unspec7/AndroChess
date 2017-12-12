@@ -760,6 +760,30 @@ public class Board {
             board[tempKing.xpos][tempKing.ypos] = tempKing;
         }
     }
+    public void randomMove(boolean blackTurn) {
+        char team;
+        if (blackTurn){
+            team = 'b';
+        } else {
+            team = 'c';
+        }
+        int randX = (int)Math.random()*8;
+        int randY = (int)Math.random()*8;
+        while (board[randX][randY].color != team) {
+            randX = (int)Math.random()*8;
+            randY = (int)Math.random()*8;
+        }
+        int newX = (int)Math.random()*8;
+        int newY = (int)Math.random()*8;
+
+        String rank = "abcdefgh";
+        String input =
+        while(!move(randX, randY, newX, newY)) {
+            newX = (int)Math.random()*8;
+            newY = (int)Math.random()*8;
+        }
+    }
+
     public void newGame() {
         /**@author Jeff
          * Starts the game and places all the pieces
