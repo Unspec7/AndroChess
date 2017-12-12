@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     String selectedMove = "";
     boolean blackTurn;
     boolean gameStart = false;
+    boolean drawOffered = false;
     ImageView selector;
     FrameLayout selected;
     View movedPiece;
@@ -458,5 +459,10 @@ public class MainActivity extends AppCompatActivity {
         Pawnb8.setImageDrawable(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.blackpawn));
         h7.addView(Pawnb8);
+    }
+
+    public void draw(View view){
+        gameStart = false;
+
     }
 }
