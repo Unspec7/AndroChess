@@ -15,19 +15,28 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
     Board undo;
+
     String selectedMove = "";
+
+    int first;
+    int second;
+
     boolean blackTurn;
     boolean gameStart = false;
     boolean drawOffered = false;
-    ImageView selector;
-    FrameLayout selected;
-    View movedPiece;
-    TextView turnCountText;
-    int first;
-    ImageView firstPiece;
-    int second;
-    ImageView secondPiece;
+    boolean drawAccepted = false;
     boolean undone = false;
+
+    FrameLayout selected;
+
+    View movedPiece;
+
+    TextView turnCountText;
+
+    ImageView firstPiece;
+    ImageView secondPiece;
+    ImageView selector;
+
     File recording;
 
     @Override
@@ -44,14 +53,22 @@ public class MainActivity extends AppCompatActivity {
         }
         gameStart = true;
         blackTurn = false;
+
+        //Creating game objects
         currentGame = new Board();
         undo = new Board();
+
+        //Create selector image
         selector = new ImageView(this);
         selector.setImageDrawable(
                 ContextCompat.getDrawable(getApplicationContext(),R.drawable.selection));
+
+        //Create all pieces
         createWhitePieces();
         createBlackPieces();
         setTurnCount();
+
+        //Recoding game
         try {
             PrintWriter writer = new PrintWriter("a.txt");
         } catch (FileNotFoundException e) {
@@ -101,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
                 turnCountText.setText(getString(R.string.whiteTurn));
             }
         }
-        else{
+        else if (drawAccepted){
+            turnCountText.setText(getString(R.string.draw));
+        }
+        else if (currentGame.winner != 0){//Set winner
             turnCountText.setText(currentGame.winner);
         }
     }
@@ -114,10 +134,12 @@ public class MainActivity extends AppCompatActivity {
         oos.flush();
         oos.close();
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+
         //Paste
         ObjectInputStream ois = new ObjectInputStream(bais);
         undo = (Board)ois.readObject();
     }
+
     public void copytoCurrent() throws IOException, ClassNotFoundException{
         //Copy
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -126,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         oos.flush();
         oos.close();
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+
         //Paste
         ObjectInputStream ois = new ObjectInputStream(bais);
         currentGame = (Board)ois.readObject();
@@ -136,19 +159,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void undo(View view) {
-        if (!undone) {
+        if (!undone) {//Make sure you're only undoing one move
+            //Return turn back to past turn
             blackTurn = !blackTurn;
             setTurnCount();
+
+            //Paste old board state
             try{
                 copytoCurrent();
             }
             catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
+
+            //Restore pieces back to old values
             FrameLayout oldFirst = findViewById(first);
             FrameLayout oldSecond = findViewById(second);
             oldSecond.removeView(firstPiece);
             oldFirst.addView(firstPiece);
+
+            //Checking if the square it went to was originally empty
             if (secondPiece != null) {
                 oldFirst.removeView(secondPiece);
                 oldSecond.addView(secondPiece);
@@ -163,37 +193,49 @@ public class MainActivity extends AppCompatActivity {
         if (gameStart) {
             String coordinates = view.getTag().toString();
             FrameLayout current = findViewById(view.getId());
+
+            //If first selection
             if (selectedMove.length() < 2) {
                 //Select
                 selectedMove += coordinates;
                 movedPiece = current.getChildAt(0);
                 current.addView(selector);
                 selected = current;
-            } else {
+            } else {//If second selection
                 selectedMove += " " + coordinates;
                 try{
+                    //Copy board state for undo
                     copytoUndo();
                 }
                 catch (ClassNotFoundException | IOException e) {
                     e.printStackTrace();
                 }
+
+                //Move the piece
                 boolean turn = currentGame.move(selectedMove, blackTurn);
                 if (turn) {
                     //Successful move
+                    //Used for undo
                     first = selected.getId();
                     second = current.getId();
                     firstPiece = (ImageView)selected.getChildAt(0);
+
+                    //Checking if the square its moving to is empty or not for undo
                     if (current.getChildCount() != 0) {
                         secondPiece = (ImageView) current.getChildAt(0);
                     }
                     else{
                         secondPiece = null;
                     }
+
+                    //Change turn
                     blackTurn = !blackTurn;
                     setTurnCount();
-                    //Remove everything
+
+                    //Remove everything in the square its moving from
                     selected.removeAllViews();
-                    //Draw new piece
+
+                    //Draw new piece in the selected square
                     current.removeAllViews();
                     current.addView(movedPiece);
                     undone = false;
@@ -354,6 +396,7 @@ public class MainActivity extends AppCompatActivity {
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.whitepawn));
         h2.addView(Pawnw8);
     }
+
     private void createBlackPieces(){
         FrameLayout a7, a8, b7, b8, c7, c8, d7, d8, e7, e8, f7, f8, g7, g8, h7, h8;
 
@@ -455,7 +498,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void draw(View view){
-        gameStart = false;
+        drawOffered = false;
+        if (drawOffered){
 
+        }
     }
 }
