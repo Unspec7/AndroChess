@@ -38,12 +38,9 @@ public class Pawn extends Piece{
                 return true;
             }
         }
-        else {
-            if ( ( (deltaX == 0 && deltaY == 1 ) && !eating) || ( eating && deltaX == 1 && deltaY == 1)){
-
-                eating=false;
-                return true;
-            }
+        if ( ( (deltaX == 0 && deltaY == 1 ) && !eating) || ( eating && deltaX == 1 && deltaY == 1)){
+            eating=false;
+            return true;
         }
         return false;
     }

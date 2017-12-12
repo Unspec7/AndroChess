@@ -109,7 +109,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -119,7 +119,7 @@
                 android:orientation="vertical"
                 android:tag="a8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -129,7 +129,7 @@
                 android:orientation="vertical"
                 android:tag="b8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -139,7 +139,7 @@
                 android:orientation="vertical"
                 android:tag="c8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -149,7 +149,7 @@
                 android:orientation="vertical"
                 android:tag="d8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -159,7 +159,7 @@
                 android:orientation="vertical"
                 android:tag="e8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -169,7 +169,7 @@
                 android:orientation="vertical"
                 android:tag="f8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -179,7 +179,7 @@
                 android:orientation="vertical"
                 android:tag="g8" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h8"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -197,7 +197,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -207,7 +207,7 @@
                 android:orientation="vertical"
                 android:tag="a7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -217,7 +217,7 @@
                 android:orientation="vertical"
                 android:tag="b7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -227,7 +227,7 @@
                 android:orientation="vertical"
                 android:tag="c7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -237,7 +237,7 @@
                 android:orientation="vertical"
                 android:tag="d7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -247,7 +247,7 @@
                 android:orientation="vertical"
                 android:tag="e7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -257,7 +257,7 @@
                 android:orientation="vertical"
                 android:tag="f7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -267,7 +267,7 @@
                 android:orientation="vertical"
                 android:tag="g7" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h7"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -285,7 +285,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -295,7 +295,7 @@
                 android:orientation="vertical"
                 android:tag="a6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -305,7 +305,7 @@
                 android:orientation="vertical"
                 android:tag="b6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -315,7 +315,7 @@
                 android:orientation="vertical"
                 android:tag="c6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -325,7 +325,7 @@
                 android:orientation="vertical"
                 android:tag="d6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -335,7 +335,7 @@
                 android:orientation="vertical"
                 android:tag="e6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -345,7 +345,7 @@
                 android:orientation="vertical"
                 android:tag="f6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -355,7 +355,7 @@
                 android:orientation="vertical"
                 android:tag="g6" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h6"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -373,7 +373,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -383,7 +383,7 @@
                 android:orientation="vertical"
                 android:tag="a5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -393,7 +393,7 @@
                 android:orientation="vertical"
                 android:tag="b5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -403,7 +403,7 @@
                 android:orientation="vertical"
                 android:tag="c5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -413,7 +413,7 @@
                 android:orientation="vertical"
                 android:tag="d5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -423,7 +423,7 @@
                 android:orientation="vertical"
                 android:tag="e5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -433,7 +433,7 @@
                 android:orientation="vertical"
                 android:tag="f5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -443,7 +443,7 @@
                 android:orientation="vertical"
                 android:tag="g5" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h5"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -461,7 +461,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -471,7 +471,7 @@
                 android:orientation="vertical"
                 android:tag="a4" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -479,9 +479,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="b4" />
+                android:tag="b4" >
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/c4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -489,9 +491,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="c4" />
+                android:tag="c4" >
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/d4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -501,7 +505,7 @@
                 android:orientation="vertical"
                 android:tag="d4" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -511,7 +515,7 @@
                 android:orientation="vertical"
                 android:tag="e4" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -521,7 +525,7 @@
                 android:orientation="vertical"
                 android:tag="f4" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -531,7 +535,7 @@
                 android:orientation="vertical"
                 android:tag="g4" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h4"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -549,7 +553,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -559,7 +563,7 @@
                 android:orientation="vertical"
                 android:tag="a3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -569,7 +573,7 @@
                 android:orientation="vertical"
                 android:tag="b3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -579,7 +583,7 @@
                 android:orientation="vertical"
                 android:tag="c3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -589,7 +593,7 @@
                 android:orientation="vertical"
                 android:tag="d3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -599,7 +603,7 @@
                 android:orientation="vertical"
                 android:tag="e3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -609,7 +613,7 @@
                 android:orientation="vertical"
                 android:tag="f3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -619,7 +623,7 @@
                 android:orientation="vertical"
                 android:tag="g3" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h3"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -637,7 +641,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -647,7 +651,7 @@
                 android:orientation="vertical"
                 android:tag="a2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/b2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -657,7 +661,7 @@
                 android:orientation="vertical"
                 android:tag="b2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/c2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -667,7 +671,7 @@
                 android:orientation="vertical"
                 android:tag="c2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/d2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -677,7 +681,7 @@
                 android:orientation="vertical"
                 android:tag="d2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/e2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -687,7 +691,7 @@
                 android:orientation="vertical"
                 android:tag="e2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/f2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -697,7 +701,7 @@
                 android:orientation="vertical"
                 android:tag="f2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/g2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -707,7 +711,7 @@
                 android:orientation="vertical"
                 android:tag="g2" />
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/h2"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -725,7 +729,7 @@
             android:layout_height="47dp"
             android:orientation="horizontal">
 
-            <TableRow
+            <FrameLayout
                 android:id="@+id/a1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -733,9 +737,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="a1" />
+                android:tag="a1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/b1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -743,9 +749,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="b1" />
+                android:tag="b1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/c1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -753,9 +761,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="c1" />
+                android:tag="c1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/d1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -763,9 +773,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="d1" />
+                android:tag="d1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/e1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -773,9 +785,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="e1" />
+                android:tag="e1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/f1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -783,9 +797,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="f1" />
+                android:tag="f1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/g1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -793,9 +809,11 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="g1" />
+                android:tag="g1">
 
-            <TableRow
+            </FrameLayout>
+
+            <FrameLayout
                 android:id="@+id/h1"
                 android:layout_width="47dp"
                 android:layout_height="47dp"
@@ -803,7 +821,9 @@
                 android:focusable="true"
                 android:onClick="sendID"
                 android:orientation="vertical"
-                android:tag="h1" />
+                android:tag="h1">
+
+            </FrameLayout>
 
         </TableRow>
 
