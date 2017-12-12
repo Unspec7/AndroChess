@@ -781,10 +781,18 @@ public class Board implements Serializable {
         int newY = (int)Math.random()*8;
 
         String rank = "abcdefgh";
-        String input =
-        while(!move(randX, randY, newX, newY)) {
+        String oldRank = Character.toString(rank.charAt(randX));
+        String oldFile = String.valueOf(randY);
+        String newRank = Character.toString(rank.charAt(newX));
+        String newFile = String.valueOf(newY);
+
+        String input = oldRank+oldFile+" "+newRank+newFile;
+        while(!move(input, blackTurn)) {
             newX = (int)Math.random()*8;
             newY = (int)Math.random()*8;
+            newRank = Character.toString(rank.charAt(newX));
+            newFile = String.valueOf(newY);
+            input = oldRank+oldFile+" "+newRank+newFile;
         }
     }
     */
