@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     int second;
     ImageView secondPiece;
     boolean undone = false;
-    File recording = new File ("a.txt");
+    File recording;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +59,11 @@ public class MainActivity extends AppCompatActivity {
         }
         File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"saved");
         directory.mkdir();
-        File recording = new File (directory.getAbsolutePath()+"/a.txt");
+        recording = new File (directory.getAbsolutePath()+"/a.txt");
     }
 
-    public void recording(File recording) {
-        try {
-            Scanner scanner = new Scanner();
-            writer.close();
+    /*public void record()  {
+            //Scanner scanner = new Scanner();
             System.out.println("Do you wish to save this game? (y/n)");
             String answer = scanner.nextLine();
 
@@ -73,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
             while(true){
                 if (answer.equals("y")) {
                     System.out.print("Save Recording As: ");
-                    File newFile = new File (scanner.nextLine().concat(".txt"));
-                    boolean success = recording.renameTo(newFile);
+                    //File newFile = new File (scanner.nextLine().concat(".txt"));
 
                     while (!success) {
                         System.out.println("Error");
@@ -93,10 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             recording.delete();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+    }*/
 
     public void setTurnCount(){
         if (currentGame.winner == 0){
@@ -203,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
                     current.removeAllViews();
                     current.addView(movedPiece);
                     undone = false;
-                    asdasdasasdfasdasdasdasdadasdasdasdasdasdasdas
                     System.out.println("Successful Move");
                 }
                 else{
