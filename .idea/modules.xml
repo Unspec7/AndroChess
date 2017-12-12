@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroChess.iml" filepath="$PROJECT_DIR$/AndroChess.iml" />
+      <module fileurl="file://C:\Users\Jeff-Dell\StudioProjects\androchess\AndroChess.iml" filepath="C:\Users\Jeff-Dell\StudioProjects\androchess\AndroChess.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androchess.iml" filepath="$PROJECT_DIR$/androchess.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\Jeff-Dell\StudioProjects\androchess\app\app.iml" filepath="C:\Users\Jeff-Dell\StudioProjects\androchess\app\app.iml" />
     </modules>
   </component>
 </project>
