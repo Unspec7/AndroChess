@@ -13,6 +13,7 @@ public class Board implements Serializable {
     private boolean enpassantReady = false;
     private Piece doubleStepPawn = new Pawn("black", 0, 0);
     int winner = 0;
+    boolean check = false;
 
     public Board() {
         board = new Piece[8][8];
@@ -221,9 +222,11 @@ public class Board implements Serializable {
                         winner = R.string.whiteWin;
                     }
                 } else {
+                    check = true;
                     System.out.println("Check");
                 }
             }
+            check = false;
             if ( stalemate(blackTurn) ){
                 System.out.println("Stalemate");
                 System.exit(0);

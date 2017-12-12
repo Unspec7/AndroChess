@@ -15,18 +15,31 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
     Board undo;
+
     String selectedMove = "";
+
+    int first;
+    int second;
+
     boolean blackTurn;
     boolean gameStart = false;
-    ImageView selector;
+    boolean oldGame;
+    boolean drawOffered;
+    boolean drawAccepted;
+    boolean undone;
+    boolean resigned;
+
     FrameLayout selected;
+
     View movedPiece;
+
     TextView turnCountText;
-    int first;
+    TextView displayedMessage;
+
     ImageView firstPiece;
-    int second;
     ImageView secondPiece;
-    boolean undone = false;
+    ImageView selector;
+
     File recording;
 
     @Override
@@ -34,23 +47,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         turnCountText = findViewById(R.id.turnCounter);
+        displayedMessage = findViewById(R.id.message);
     }
 
     public void beginGame(View view) {
-        if (gameStart){
+        if (oldGame){
             clearBoard();
             currentGame = null;
         }
+        oldGame = true;
+        resigned = false;
         gameStart = true;
         blackTurn = false;
+        gameStart = true;
+        drawOffered = false;
+        drawAccepted = false;
+        undone = false;
+        displayedMessage.setText("");
+
+        //Creating game objects
         currentGame = new Board();
         undo = new Board();
+
+        //Create selector image
         selector = new ImageView(this);
         selector.setImageDrawable(
                 ContextCompat.getDrawable(getApplicationContext(),R.drawable.selection));
+
+        //Create all pieces
         createWhitePieces();
         createBlackPieces();
         setTurnCount();
+
+        //Recoding game
         try {
             PrintWriter writer = new PrintWriter("a.txt");
         } catch (FileNotFoundException e) {
@@ -92,16 +121,31 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     public void setTurnCount(){
-        if (currentGame.winner == 0){
-            if (blackTurn){
-                turnCountText.setText(getString(R.string.blackTurn));
+        if (!currentGame.checkmateDetected){
+            if (drawAccepted){
+                turnCountText.setText(getString(R.string.draw));
+                gameStart = false;
             }
             else{
-                turnCountText.setText(getString(R.string.whiteTurn));
+                if (blackTurn){
+                    turnCountText.setText(getString(R.string.blackTurn));
+                }
+                else{
+                    turnCountText.setText(getString(R.string.whiteTurn));
+                }
+            }
+            if (currentGame.check){
+                displayedMessage.setText(getString(R.string.check));
+            }
+            if (resigned) {
+                displayedMessage.setText(getString(R.string.resigned));
+                turnCountText.setText(getString(currentGame.winner));
             }
         }
-        else{
-            turnCountText.setText(currentGame.winner);
+        else {//Set winner
+            gameStart = false;
+            turnCountText.setText(getString(currentGame.winner));
+            displayedMessage.setText(getString(R.string.checkmate));
         }
     }
 
@@ -113,10 +157,12 @@ public class MainActivity extends AppCompatActivity {
         oos.flush();
         oos.close();
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+
         //Paste
         ObjectInputStream ois = new ObjectInputStream(bais);
         undo = (Board)ois.readObject();
     }
+
     public void copytoCurrent() throws IOException, ClassNotFoundException{
         //Copy
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -125,6 +171,7 @@ public class MainActivity extends AppCompatActivity {
         oos.flush();
         oos.close();
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+
         //Paste
         ObjectInputStream ois = new ObjectInputStream(bais);
         currentGame = (Board)ois.readObject();
@@ -135,19 +182,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void undo(View view) {
-        if (!undone) {
+        if (!undone) {//Make sure you're only undoing one move
+            //Return turn back to past turn
             blackTurn = !blackTurn;
             setTurnCount();
+
+            //Paste old board state
             try{
                 copytoCurrent();
             }
             catch (ClassNotFoundException | IOException e) {
                 e.printStackTrace();
             }
+
+            //Restore pieces back to old values
             FrameLayout oldFirst = findViewById(first);
             FrameLayout oldSecond = findViewById(second);
             oldSecond.removeView(firstPiece);
             oldFirst.addView(firstPiece);
+
+            //Checking if the square it went to was originally empty
             if (secondPiece != null) {
                 oldFirst.removeView(secondPiece);
                 oldSecond.addView(secondPiece);
@@ -162,40 +216,55 @@ public class MainActivity extends AppCompatActivity {
         if (gameStart) {
             String coordinates = view.getTag().toString();
             FrameLayout current = findViewById(view.getId());
+
+            //If first selection
             if (selectedMove.length() < 2) {
                 //Select
                 selectedMove += coordinates;
                 movedPiece = current.getChildAt(0);
                 current.addView(selector);
                 selected = current;
-            } else {
+            } else {//If second selection
                 selectedMove += " " + coordinates;
                 try{
+                    //Copy board state for undo
                     copytoUndo();
                 }
                 catch (ClassNotFoundException | IOException e) {
                     e.printStackTrace();
                 }
+
+                //Move the piece
                 boolean turn = currentGame.move(selectedMove, blackTurn);
                 if (turn) {
                     //Successful move
+                    //Used for undo
                     first = selected.getId();
                     second = current.getId();
                     firstPiece = (ImageView)selected.getChildAt(0);
+
+                    //Checking if the square its moving to is empty or not for undo
                     if (current.getChildCount() != 0) {
                         secondPiece = (ImageView) current.getChildAt(0);
                     }
                     else{
                         secondPiece = null;
                     }
-                    blackTurn = !blackTurn;
-                    setTurnCount();
-                    //Remove everything
+
+                    //Remove everything in the square its moving from
                     selected.removeAllViews();
-                    //Draw new piece
+
+                    //Draw new piece in the selected square
                     current.removeAllViews();
                     current.addView(movedPiece);
+
+                    //Change turn
+                    blackTurn = !blackTurn;
+                    setTurnCount();
+
+                    //Set variables
                     undone = false;
+                    drawOffered = false;
                     System.out.println("Successful Move");
                 }
                 else{
@@ -353,6 +422,7 @@ public class MainActivity extends AppCompatActivity {
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.whitepawn));
         h2.addView(Pawnw8);
     }
+
     private void createBlackPieces(){
         FrameLayout a7, a8, b7, b8, c7, c8, d7, d8, e7, e8, f7, f8, g7, g8, h7, h8;
 
@@ -451,5 +521,31 @@ public class MainActivity extends AppCompatActivity {
         Pawnb8.setImageDrawable(
                 ContextCompat.getDrawable(getApplicationContext(), R.drawable.blackpawn));
         h7.addView(Pawnb8);
+    }
+
+    public void draw(View view){
+        if (drawOffered){
+            drawAccepted = true;
+            gameStart = false;
+        }
+        else{
+            displayedMessage.setText(getString(R.string.offerDraw));
+            drawOffered = true;
+        }
+        setTurnCount();
+    }
+
+    public void resign(View view){
+        if (blackTurn){
+            //White win
+            currentGame.winner = R.string.whiteWin;
+        }
+        else{
+            //Black win
+            currentGame.winner = R.string.blackWin;
+        }
+        gameStart = false;
+        resigned = true;
+        setTurnCount();
     }
 }
