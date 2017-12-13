@@ -1,11 +1,15 @@
 package chess.androchess;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableRow;
@@ -20,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Board undo;
 
     String selectedMove = "";
+    String savename = "";
+    String loadname = "";
 
     int first;
     int second;
@@ -58,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             clearBoard();
             currentGame = null;
         }
+        savename = "";
         oldGame = true;
         resigned = false;
         gameStart = true;
@@ -146,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{//Set winner
             gameStart = false;
-            saveGame();;
+            getNameSave();
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
         }
@@ -285,12 +292,35 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    private void getNameSave() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Save");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                savename = input.getText().toString()+".txt";
+                saveGame();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
 
     public void saveGame() {
         String dirName = "saved";
         File dir = new File(dirName);
         dir.mkdir();
-        String filename = "save.txt";
+        System.out.println(savename);
+        String filename = savename;
         FileOutputStream outputStream;
 
         try {
@@ -574,18 +604,65 @@ public class MainActivity extends AppCompatActivity {
         setTurnCount();
     }
 
-    public void loadReplay(View view) {
-        System.out.println("Debuggy boi");
-        File save = new File ("/data/user/0/chess.androchess/files/save.txt");
+    private void setNameLoad() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Load");
 
-        try (FileInputStream fis = new FileInputStream(save)) {
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                loadname = input.getText().toString()+".txt";
+                loader();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                loadname = "";
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+    public void loadReplay(View view) {
+        loadname = "";
+        setNameLoad();
+        System.out.println(loadname);
+        System.out.println("Debuggy boi");
+
+
+    }
+    private void loader() {
+        Board loaded = new Board();
+        File load = new File ("/data/user/0/chess.androchess/files/"+loadname);
+        boolean blackTurn = false;
+        System.out.println(load.getAbsolutePath());
+        try (FileInputStream fis = new FileInputStream(load)) {
             String input = "";
             char content;
             while ((content = (char)fis.read()) != -1) {
+
+                if (content == '\uFFFF') {
+                    break;
+                }
                 input+=Character.toString(content);
+                if (content == '\r') {
+                    System.out.println(input);
+                    loaded.move(input, blackTurn);
+                    if (blackTurn) {
+                        blackTurn = false;
+                    } else {
+                        blackTurn = true;
+                    }
+                }
             }
 
+
         } catch (IOException e) {
+            Toast.makeText(this, "File Not Found", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
