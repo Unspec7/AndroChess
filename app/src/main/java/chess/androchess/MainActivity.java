@@ -631,9 +631,6 @@ public class MainActivity extends AppCompatActivity {
         loadname = "";
         setNameLoad();
         System.out.println(loadname);
-        System.out.println("Debuggy boi");
-
-
     }
     private void loader() {
         Board loaded = new Board();
@@ -648,6 +645,7 @@ public class MainActivity extends AppCompatActivity {
                 if (content == '\uFFFF') {
                     break;
                 }
+                //JEFF LOOK HERE
                 input+=Character.toString(content);
                 if (content == '\r') {
                     System.out.println(input);
