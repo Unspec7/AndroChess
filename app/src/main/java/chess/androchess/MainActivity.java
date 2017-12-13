@@ -278,7 +278,9 @@ public class MainActivity extends AppCompatActivity {
                     //Set variables
                     undone = false;
                     drawOffered = false;
-                    displayedMessage.setText("");
+                    if (gameStart) {
+                        displayedMessage.setText("");
+                    }
                     System.out.println("Successful Move");
                     moves+=(selectedMove+"\r");
                 }
