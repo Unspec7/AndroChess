@@ -12,7 +12,6 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import java.io.*;
 import java.util.Scanner;
-<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 public class MainActivity extends AppCompatActivity {
     Board currentGame;
@@ -40,14 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView firstPiece;
     ImageView secondPiece;
-<<<<<<< Updated upstream
     ImageView selector;
 
-    File recording;
-=======
-    boolean undone = false;
     String moves = "";
->>>>>>> Stashed changes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,10 +79,9 @@ public class MainActivity extends AppCompatActivity {
         createWhitePieces();
         createBlackPieces();
         setTurnCount();
-<<<<<<< Updated upstream
 
         //Recoding game
-        try {
+        /*try {
             PrintWriter writer = new PrintWriter("a.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -96,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
         File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"saved");
         directory.mkdir();
         recording = new File (directory.getAbsolutePath()+"/a.txt");
-=======
->>>>>>> Stashed changes
+        */
     }
 
     /*public void record()  {
@@ -150,26 +142,24 @@ public class MainActivity extends AppCompatActivity {
                 turnCountText.setText(getString(currentGame.winner));
             }
         }
-<<<<<<< Updated upstream
-        else {//Set winner
+        else{//Set winner
             gameStart = false;
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
-=======
-        else{
-            turnCountText.setText(currentGame.winner);
-            System.out.println(moves);
-            PrintWriter printer = null;
-            File save = new File("save.txt");
-            try {
-                printer = new PrintWriter("save.txt");
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            printer.println(moves);
-
->>>>>>> Stashed changes
         }
+    }
+
+    public void saveGame(){
+        turnCountText.setText(currentGame.winner);
+        System.out.println(moves);
+        PrintWriter printer = null;
+        File save = new File("save.txt");
+        try {
+            printer = new PrintWriter("save.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        printer.println(moves);
     }
 
     public void copytoUndo() throws IOException, ClassNotFoundException{
@@ -304,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void generateNoteOnSD(Context context, String sFileName, String sBody) {
+    /*public void generateNoteOnSD(Context context, String sFileName, String sBody) {
         try {
             File root = new File(Environment.getExternalStorageDirectory(), "Notes");
             if (!root.exists()) {
@@ -319,7 +309,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void clearBoard(){
         int i;
