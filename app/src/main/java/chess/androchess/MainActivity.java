@@ -10,6 +10,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -144,22 +146,10 @@ public class MainActivity extends AppCompatActivity {
         }
         else{//Set winner
             gameStart = false;
+            saveGame();;
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
         }
-    }
-
-    public void saveGame(){
-        turnCountText.setText(currentGame.winner);
-        System.out.println(moves);
-        PrintWriter printer = null;
-        File save = new File("save.txt");
-        try {
-            printer = new PrintWriter("save.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        printer.println(moves);
     }
 
     public void copytoUndo() throws IOException, ClassNotFoundException{
@@ -296,23 +286,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /*public void generateNoteOnSD(Context context, String sFileName, String sBody) {
+    public void saveGame() {
+        String dirName = "saved";
+        File dir = new File(dirName);
+        dir.mkdir();
+        String filename = "save.txt";
+        FileOutputStream outputStream;
+
         try {
-            File root = new File(Environment.getExternalStorageDirectory(), "Notes");
-            if (!root.exists()) {
-                root.mkdirs();
-            }
-            File gpxfile = new File(root, sFileName);
-            FileWriter writer = new FileWriter(gpxfile);
-            writer.append(sBody);
-            writer.flush();
-            writer.close();
-            Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
+            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+            outputStream.write(moves.getBytes());
+            outputStream.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
-
+        File file = new File(getFilesDir() + "/" + filename);
+        System.out.println(file.getAbsolutePath());
+    }
     private void clearBoard(){
         int i;
         //Clear entire board
@@ -582,5 +572,21 @@ public class MainActivity extends AppCompatActivity {
         gameStart = false;
         resigned = true;
         setTurnCount();
+    }
+
+    public void loadReplay(View view) {
+        System.out.println("Debuggy boi");
+        File save = new File ("/data/user/0/chess.androchess/files/save.txt");
+
+        try (FileInputStream fis = new FileInputStream(save)) {
+            String input = "";
+            char content;
+            while ((content = (char)fis.read()) != -1) {
+                input+=Character.toString(content);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

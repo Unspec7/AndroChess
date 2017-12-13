@@ -854,11 +854,12 @@
         tools:text="New Game" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/loadReplay"
         android:layout_width="115dp"
         android:layout_height="45dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
+        android:onClick="loadReplay"
         android:text="@string/Load_Replay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/begin"
