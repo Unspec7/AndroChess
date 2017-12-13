@@ -132,22 +132,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void setTurnCount(){
         if (!currentGame.checkmateDetected){
+            if (blackTurn){
+                turnCountText.setText(getString(R.string.blackTurn));
+            }
+            else{
+                turnCountText.setText(getString(R.string.whiteTurn));
+            }
             if (drawAccepted){
                 turnCountText.setText(getString(R.string.draw));
                 gameStart = false;
             }
-            else{
-                if (blackTurn){
-                    turnCountText.setText(getString(R.string.blackTurn));
-                }
-                else{
-                    turnCountText.setText(getString(R.string.whiteTurn));
-                }
-            }
-            if (currentGame.check){
+            else if (currentGame.check){
                 displayedMessage.setText(getString(R.string.check));
             }
-            if (resigned) {
+            else if (resigned) {
                 displayedMessage.setText(getString(R.string.resigned));
                 turnCountText.setText(getString(currentGame.winner));
             }
@@ -290,6 +288,7 @@ public class MainActivity extends AppCompatActivity {
                     //Set variables
                     undone = false;
                     drawOffered = false;
+                    displayedMessage.setText("");
                     System.out.println("Successful Move");
                     moves+=(selectedMove+"\r");
                 }

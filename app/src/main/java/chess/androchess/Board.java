@@ -226,7 +226,9 @@ public class Board implements Serializable {
                     System.out.println("Check");
                 }
             }
-            check = false;
+            else {
+                check = false;
+            }
             if ( stalemate(blackTurn) ){
                 System.out.println("Stalemate");
                 System.exit(0);
