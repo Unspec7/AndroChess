@@ -18,4 +18,5 @@
     <string name="offerDraw">Draw?</string>
     <string name="check">Check</string>
     <string name="checkmate">Checkmate</string>
+    <string name="oneMove">Step</string>
 </resources>
