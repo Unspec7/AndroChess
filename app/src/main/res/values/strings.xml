@@ -19,4 +19,11 @@
     <string name="check">Check</string>
     <string name="checkmate">Checkmate</string>
     <string name="oneMove">Step</string>
+    <string-array name="promotions">
+        <item>Queen</item>>
+        <item>Bishop</item>
+        <item>Knight</item>
+        <item>Rook</item>
+        </string-array>
+
 </resources>
