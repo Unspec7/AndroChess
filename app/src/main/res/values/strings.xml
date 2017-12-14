@@ -25,5 +25,6 @@
         <item>Knight</item>
         <item>Rook</item>
         </string-array>
+    <string name="load">Saved Games</string>
 
 </resources>
