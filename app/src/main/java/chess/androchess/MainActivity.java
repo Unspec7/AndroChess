@@ -743,10 +743,10 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(loadname);
     }
     private void loader() {
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         Board loaded = new Board();
         File load = new File ("/data/user/0/chess.androchess/files/"+loadname);
-        boolean blackTurn = false;
+        Toast.makeText(this, loadname + " loaded", Toast.LENGTH_SHORT).show();
+        blackTurn = false;
         System.out.println(load.getAbsolutePath());
         try (FileInputStream fis = new FileInputStream(load)) {
             String input = "";
