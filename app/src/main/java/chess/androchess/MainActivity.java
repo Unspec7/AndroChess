@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     int first;
     int second;
+    int replayIndex;
 
     boolean blackTurn;
     boolean gameStart = false;
@@ -70,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             currentGame = null;
         }
         savename = "";
+        moves = "";
         oldGame = true;
         resigned = false;
         gameStart = true;
@@ -80,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         replayStarted = false;
         undone = false;
         displayedMessage.setText("");
+        Button replayMove = findViewById(R.id.replayMove);
+        replayMove.setVisibility(View.INVISIBLE);
 
         //Creating game objects
         currentGame = new Board();
@@ -108,21 +113,33 @@ public class MainActivity extends AppCompatActivity {
             }
             if (drawAccepted){
                 turnCountText.setText(getString(R.string.draw));
+                askSave();
                 gameStart = false;
             }
             else if (currentGame.check){
                 displayedMessage.setText(getString(R.string.check));
             }
             else if (resigned) {
+                askSave();
                 displayedMessage.setText(getString(R.string.resigned));
-                turnCountText.setText(getString(currentGame.winner));
             }
         }
         else{//Set winner
             gameStart = false;
-            getNameSave();
+            askSave();
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
+        }
+    }
+
+    public void askSave(){
+        if (!replayStarted) {
+            getNameSave();
+        }
+        else{
+            replayStarted = false;
+            Button replayMove = findViewById(R.id.replayMove);
+            replayMove.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -213,11 +230,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void replayMove(View view) {
-        if (!replayStarted) {
-            Toast.makeText(this, "No game loaded", Toast.LENGTH_SHORT).show();
-        } else {
-            for(int i = 0; i < replayMoves.length; i++) {
-               oneStep(replayMoves[i]);
+        if (replayStarted) {
+            if (replayIndex < replayMoves.length){
+                oneStep(replayMoves[replayIndex]);
+                replayIndex++;
             }
         }
     }
@@ -306,11 +322,11 @@ public class MainActivity extends AppCompatActivity {
             //Resigned
             if (blackTurn){
                 //White win
-                currentGame.winner = R.string.whiteWin;
+                turnCountText.setText(getString(R.string.whiteWin));
             }
             else{
                 //Black win
-                currentGame.winner = R.string.blackWin;
+                turnCountText.setText(getString(R.string.blackWin));
             }
             gameStart = false;
             resigned = true;
@@ -409,6 +425,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 savename = input.getText().toString()+".txt";
+
                 saveGame();
             }
         });
@@ -425,7 +442,7 @@ public class MainActivity extends AppCompatActivity {
         String dirName = "saved";
         File dir = new File(dirName);
         dir.mkdir();
-        System.out.println(savename);
+        Toast.makeText(this, "Game saved as: " + savename, Toast.LENGTH_SHORT).show();
         String filename = savename;
         FileOutputStream outputStream;
 
@@ -688,7 +705,7 @@ public class MainActivity extends AppCompatActivity {
         if (drawOffered){
             drawAccepted = true;
             gameStart = false;
-            moves +="dr aw\r";
+            moves +="dr aw"+"\r";
         }
         else{
             displayedMessage.setText(getString(R.string.offerDraw));
@@ -698,14 +715,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resign(View view){
-        moves +="re sn\r";
+        moves +="re sn"+"\r";
         if (blackTurn){
             //White win
-            currentGame.winner = R.string.whiteWin;
+            turnCountText.setText(getString(R.string.whiteWin));
         }
         else{
             //Black win
-            currentGame.winner = R.string.blackWin;
+            turnCountText.setText(getString(R.string.blackWin));
         }
         gameStart = false;
         resigned = true;
@@ -745,10 +762,15 @@ public class MainActivity extends AppCompatActivity {
     private void loader() {
         Board loaded = new Board();
         File load = new File ("/data/user/0/chess.androchess/files/"+loadname);
-        Toast.makeText(this, loadname + " loaded", Toast.LENGTH_SHORT).show();
         blackTurn = false;
         System.out.println(load.getAbsolutePath());
         try (FileInputStream fis = new FileInputStream(load)) {
+            Toast.makeText(this, loadname + " loaded", Toast.LENGTH_SHORT).show();
+            Button replayMove = findViewById(R.id.replayMove);
+            replayMove.setVisibility(View.VISIBLE);
+            replayStarted = true;
+            displayedMessage.setText("");
+            replayIndex = 0;
             String input = "";
             char content;
             while ((content = (char)fis.read()) != -1) {
@@ -775,6 +797,8 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (IOException e) {
             Toast.makeText(this, "Game not found", Toast.LENGTH_SHORT).show();
+            Button replayMove = findViewById(R.id.replayMove);
+            replayMove.setVisibility(View.INVISIBLE);
             e.printStackTrace();
         }
     }
