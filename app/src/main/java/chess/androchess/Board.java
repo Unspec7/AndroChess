@@ -770,6 +770,7 @@ public class Board implements Serializable {
 
     public String randomMove(boolean blackTurn) {
         char team;
+
         if (blackTurn){
             team = 'b';
         } else {
