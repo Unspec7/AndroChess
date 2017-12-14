@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     boolean undone;
     boolean resigned;
     boolean replayStarted = false;
+    boolean firstMove;
 
     FrameLayout selected;
 
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         replayStarted = false;
         undone = true;
         displayedMessage.setText("");
+        firstMove = true;
         Button replayMove = findViewById(R.id.replayMove);
         replayMove.setVisibility(View.GONE);
 
@@ -192,12 +194,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AI(View view){
-        if(currentGame==null) {
-            Toast.makeText(this, "Game Not Started", Toast.LENGTH_SHORT).show();
-        } else {
-            String AImove = currentGame.randomMove(blackTurn);
-            oneStep(AImove);
-            moves+=AImove;
+        if (gameStart){
+            if (!firstMove){
+                //currentGame.randomMove(blackTurn);
+            }
+            else{
+                Toast.makeText(this, "Please unselect your piece", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }
@@ -250,11 +253,13 @@ public class MainActivity extends AppCompatActivity {
             //If first selection
             if (selectedMove.length() < 2) {
                 //Select
+                firstMove = true;
                 selectedMove += coordinates;
                 movedPiece = current.getChildAt(0);
                 current.addView(selector);
                 selected = current;
             } else {//If second selection
+                firstMove = false;
                 selectedMove += " " + coordinates;
                 try{
                     //Copy board state for undo
@@ -298,13 +303,12 @@ public class MainActivity extends AppCompatActivity {
                     if (gameStart) {
                         displayedMessage.setText("");
                     }
-                    System.out.println("Successful Move");
                     undoMoves = moves;
                     moves+=(selectedMove+"\r");
 
                 }
                 else{
-                    System.out.println("Failed Move");
+                    Toast.makeText(this, "Illegal move", Toast.LENGTH_SHORT).show();
                 }
 
                 //Unselect
@@ -786,6 +790,7 @@ public class MainActivity extends AppCompatActivity {
             undone = true;
             gameStart = false;
             blackTurn = false;
+            firstMove = true;
             replayIndex = 0;
             String input = "";
             char content;
