@@ -803,6 +803,13 @@ public class Board implements Serializable {
             newRank = Character.toString(rank.charAt(newX));
             newFile = String.valueOf(newY+1);
             input = oldRank+oldFile+" "+newRank+newFile;
+            temp.eating = false;
+            Piece enemyTemp = board[newX][newY];
+            if (enemyTemp!=null) {
+                if (enemyTemp.color!=temp.color) {
+                    temp.eating = true;
+                }
+            }
             temp = null;
             success = move(input, blackTurn);
         }
