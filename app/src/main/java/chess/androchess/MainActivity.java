@@ -197,7 +197,27 @@ public class MainActivity extends AppCompatActivity {
         if (gameStart){
             if (!firstMove){
                 String AIMove = currentGame.randomMove(blackTurn);
-                oneStep(AIMove);
+                //Successful move
+                String firstBox = AIMove.substring(0, 2);
+                String secondBox = AIMove.substring(3);
+                FrameLayout oldBox = findFrame(firstBox);
+                FrameLayout newBox = findFrame(secondBox);
+                //Remove everything in the square its moving from
+                View oldPiece = oldBox.getChildAt(0);
+                oldBox.removeAllViews();
+
+                //Draw new piece in the selected square
+                newBox.removeAllViews();
+                newBox.addView(oldPiece);
+
+                //Change turn
+                blackTurn = !blackTurn;
+                setTurnCount();
+
+                //Set variables
+                if (gameStart) {
+                    displayedMessage.setText("");
+                }
 
             }
             else{
@@ -801,14 +821,7 @@ public class MainActivity extends AppCompatActivity {
                 if (content == '\uFFFF') {
                     break;
                 }
-                //JEFF LOOK HERE
                 input+=Character.toString(content);
-                /*if (content == '\r') {
-                    System.out.println(input);
-                    loaded.move(input, blackTurn);
-
-                    blackTurn = !blackTurn;
-                }*/
             }
 
             replayMoves = input.split("\r");
