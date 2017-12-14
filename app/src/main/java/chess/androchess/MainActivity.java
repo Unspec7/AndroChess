@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         replayStarted = false;
         undone = true;
         displayedMessage.setText("");
-        firstMove = true;
+        firstMove = false;
         Button replayMove = findViewById(R.id.replayMove);
         replayMove.setVisibility(View.GONE);
 
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
     public void AI(View view){
         if (gameStart){
             if (!firstMove){
-                //currentGame.randomMove(blackTurn);
+                currentGame.randomMove(blackTurn);
             }
             else{
                 Toast.makeText(this, "Please unselect your piece", Toast.LENGTH_SHORT).show();
@@ -790,7 +790,7 @@ public class MainActivity extends AppCompatActivity {
             undone = true;
             gameStart = false;
             blackTurn = false;
-            firstMove = true;
+            firstMove = false;
             replayIndex = 0;
             String input = "";
             char content;
