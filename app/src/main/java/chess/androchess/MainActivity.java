@@ -196,7 +196,9 @@ public class MainActivity extends AppCompatActivity {
     public void AI(View view){
         if (gameStart){
             if (!firstMove){
-                currentGame.randomMove(blackTurn);
+                String AIMove = currentGame.randomMove(blackTurn);
+                oneStep(AIMove);
+
             }
             else{
                 Toast.makeText(this, "Please unselect your piece", Toast.LENGTH_SHORT).show();
