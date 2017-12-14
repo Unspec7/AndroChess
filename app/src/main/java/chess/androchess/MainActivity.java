@@ -194,7 +194,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AI(View view){
-        //currentGame.randomMove(blackTurn);
+        if(currentGame==null) {
+            Toast.makeText(this, "Game Not Started", Toast.LENGTH_SHORT).show();
+        } else {
+            oneStep(currentGame.randomMove(blackTurn));
+
+        }
+
     }
 
     public void undo(View view) {

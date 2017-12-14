@@ -768,42 +768,41 @@ public class Board implements Serializable {
         }
     }
 
-    public void randomMove(boolean blackTurn) {
+    public String randomMove(boolean blackTurn) {
         char team;
         if (blackTurn){
             team = 'b';
         } else {
             team = 'w';
         }
-        int oldX = (int)Math.random()*8;
-        int oldY = (int)Math.random()*8;
-        while (board[oldX][oldY].color != team) {
-            oldX = (int)Math.random()*8;
-            oldY = (int)Math.random()*8;
-        }
-        int newX = (int)Math.random()*8;
-        int newY = (int)Math.random()*8;
+        int oldX = (int)(Math.random()*8);
+        int oldY = (int)(Math.random()*8);
+        Piece temp = board[oldX][oldY];
+        int newX = (int)(Math.random()*8);
+        int newY = (int)(Math.random()*8);
 
         String rank = "abcdefgh";
         String oldRank = Character.toString(rank.charAt(oldX));
-        String oldFile = String.valueOf(oldY);
+        String oldFile = String.valueOf(oldY+1);
         String newRank = Character.toString(rank.charAt(newX));
-        String newFile = String.valueOf(newY);
+        String newFile = String.valueOf(newY+1);
 
         String input = oldRank+oldFile+" "+newRank+newFile;
         while(!move(input, blackTurn)) {
-            while (board[oldX][oldY].color != team) {
-                oldX = (int)Math.random()*8;
-                oldY = (int)Math.random()*8;
+            while (temp==null || temp.color!=team) {
+                oldX = (int)(Math.random()*8);
+                oldY = (int)(Math.random()*8);
+                temp = board[oldX][oldY];
             }
-            newX = (int)Math.random()*8;
-            newY = (int)Math.random()*8;
+            newX = (int)(Math.random()*8);
+            newY = (int)(Math.random()*8);
             oldRank = Character.toString(rank.charAt(oldX));
-            oldFile = String.valueOf(oldY);
+            oldFile = String.valueOf(oldY+1);
             newRank = Character.toString(rank.charAt(newX));
-            newFile = String.valueOf(newY);
+            newFile = String.valueOf(newY+1);
             input = oldRank+oldFile+" "+newRank+newFile;
         }
+        return input;
     }
 
     public void newGame() {
