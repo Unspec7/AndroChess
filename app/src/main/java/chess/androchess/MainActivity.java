@@ -2,6 +2,7 @@ package chess.androchess;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.inputmethodservice.AbstractInputMethodService;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -194,8 +195,9 @@ public class MainActivity extends AppCompatActivity {
         if(currentGame==null) {
             Toast.makeText(this, "Game Not Started", Toast.LENGTH_SHORT).show();
         } else {
-            oneStep(currentGame.randomMove(blackTurn));
-
+            String AImove = currentGame.randomMove(blackTurn);
+            oneStep(AImove);
+            moves+=AImove;
         }
 
     }

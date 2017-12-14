@@ -788,7 +788,8 @@ public class Board implements Serializable {
         String newFile = String.valueOf(newY+1);
 
         String input = oldRank+oldFile+" "+newRank+newFile;
-        while(!move(input, blackTurn)) {
+        boolean success = move(input, blackTurn);
+        while(!success) {
             while (temp==null || temp.color!=team) {
                 oldX = (int)(Math.random()*8);
                 oldY = (int)(Math.random()*8);
@@ -801,6 +802,8 @@ public class Board implements Serializable {
             newRank = Character.toString(rank.charAt(newX));
             newFile = String.valueOf(newY+1);
             input = oldRank+oldFile+" "+newRank+newFile;
+            temp = null;
+            success = move(input, blackTurn);
         }
         return input;
     }
