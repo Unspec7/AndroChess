@@ -212,12 +212,12 @@ public class MainActivity extends AppCompatActivity {
 
                 //Change turn
                 blackTurn = !blackTurn;
-                setTurnCount();
 
                 //Set variables
                 if (gameStart) {
                     displayedMessage.setText("");
                 }
+                setTurnCount();
 
             }
             else{
@@ -232,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
             if (!undone) {//Make sure you're only undoing one move
                 //Return turn back to past turn
                 blackTurn = !blackTurn;
+                displayedMessage.setText("");
                 setTurnCount();
                 moves = undoMoves;
 
@@ -317,7 +318,6 @@ public class MainActivity extends AppCompatActivity {
 
                     //Change turn
                     blackTurn = !blackTurn;
-                    setTurnCount();
 
                     //Set variables
                     undone = false;
@@ -327,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     undoMoves = moves;
                     moves+=(selectedMove+"\r");
-
+                    setTurnCount();
                 }
                 else{
                     Toast.makeText(this, "Illegal move", Toast.LENGTH_SHORT).show();
@@ -384,12 +384,12 @@ public class MainActivity extends AppCompatActivity {
 
                 //Change turn
                 blackTurn = !blackTurn;
-                setTurnCount();
 
                 //Set variables
                 if (gameStart) {
                     displayedMessage.setText("");
                 }
+                setTurnCount();
             }
         }
     }
