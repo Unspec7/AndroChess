@@ -773,27 +773,33 @@ public class Board implements Serializable {
         if (blackTurn){
             team = 'b';
         } else {
-            team = 'c';
+            team = 'w';
         }
-        int randX = (int)Math.random()*8;
-        int randY = (int)Math.random()*8;
-        while (board[randX][randY].color != team) {
-            randX = (int)Math.random()*8;
-            randY = (int)Math.random()*8;
+        int oldX = (int)Math.random()*8;
+        int oldY = (int)Math.random()*8;
+        while (board[oldX][oldY].color != team) {
+            oldX = (int)Math.random()*8;
+            oldY = (int)Math.random()*8;
         }
         int newX = (int)Math.random()*8;
         int newY = (int)Math.random()*8;
 
         String rank = "abcdefgh";
-        String oldRank = Character.toString(rank.charAt(randX));
-        String oldFile = String.valueOf(randY);
+        String oldRank = Character.toString(rank.charAt(oldX));
+        String oldFile = String.valueOf(oldY);
         String newRank = Character.toString(rank.charAt(newX));
         String newFile = String.valueOf(newY);
 
         String input = oldRank+oldFile+" "+newRank+newFile;
         while(!move(input, blackTurn)) {
+            while (board[oldX][oldY].color != team) {
+                oldX = (int)Math.random()*8;
+                oldY = (int)Math.random()*8;
+            }
             newX = (int)Math.random()*8;
             newY = (int)Math.random()*8;
+            oldRank = Character.toString(rank.charAt(oldX));
+            oldFile = String.valueOf(oldY);
             newRank = Character.toString(rank.charAt(newX));
             newFile = String.valueOf(newY);
             input = oldRank+oldFile+" "+newRank+newFile;
