@@ -2,8 +2,6 @@ package chess.androchess;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.inputmethodservice.AbstractInputMethodService;
-import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -19,9 +17,7 @@ import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.*;
-import java.util.Scanner;
 
 public class MainActivity extends AppCompatActivity {
     Board currentGame;

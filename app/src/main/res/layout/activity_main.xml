@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context="chess.androchess.MainActivity">
 
-    <Spinner
-        android:id="@+id/promotions"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:spinnerMode="dialog"/>
-
     <ImageView
         android:id="@+id/background"
         android:layout_width="387dp"
