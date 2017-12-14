@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -122,6 +124,28 @@ public class MainActivity extends AppCompatActivity {
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
         }
+    }
+
+    public void promote() {
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        View mView = getLayoutInflater().inflate(R.layout.activity_main, null);
+        b.setTitle("Promote: ");
+        final Spinner promotions = (Spinner) mView.findViewById(R.id.promotions);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item,
+                getResources().getStringArray(R.array.promotions));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        promotions.setAdapter(adapter);
+
+        b.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (!promotions.getSelectedItem().toString().equalsIgnoreCase("")) {
+
+                }
+            }
+        })
+        b.show();
     }
 
     public void copytoUndo() throws IOException, ClassNotFoundException{
