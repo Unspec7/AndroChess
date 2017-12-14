@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView selector;
 
     String moves = "";
+    String undoMoves = "";
     String [] replayMoves;
 
     @Override
@@ -264,7 +265,9 @@ public class MainActivity extends AppCompatActivity {
                         displayedMessage.setText("");
                     }
                     System.out.println("Successful Move");
+                    undoMoves = moves;
                     moves+=(selectedMove+"\r");
+
                 }
                 else{
                     System.out.println("Failed Move");
