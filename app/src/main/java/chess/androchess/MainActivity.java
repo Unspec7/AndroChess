@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     boolean blackTurn;
     boolean gameStart = false;
-    boolean oldGame;
     boolean drawOffered;
     boolean drawAccepted;
     boolean undone;
@@ -67,13 +66,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void beginGame(View view) {
-        if (oldGame){
-            clearBoard();
-            currentGame = null;
-        }
+        clearBoard();
+        currentGame = null;
         savename = "";
         moves = "";
-        oldGame = true;
         resigned = false;
         gameStart = true;
         blackTurn = false;
@@ -81,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         drawOffered = false;
         drawAccepted = false;
         replayStarted = false;
-        undone = false;
+        undone = true;
         displayedMessage.setText("");
         Button replayMove = findViewById(R.id.replayMove);
-        replayMove.setVisibility(View.INVISIBLE);
+        replayMove.setVisibility(View.GONE);
 
         //Creating game objects
         currentGame = new Board();
@@ -105,30 +101,33 @@ public class MainActivity extends AppCompatActivity {
 
     public void setTurnCount(){
         if (!currentGame.checkmateDetected){
-            if (blackTurn){
-                turnCountText.setText(getString(R.string.blackTurn));
-            }
-            else{
-                turnCountText.setText(getString(R.string.whiteTurn));
-            }
             if (drawAccepted){
                 turnCountText.setText(getString(R.string.draw));
-                askSave();
                 gameStart = false;
+                askSave();
             }
             else if (currentGame.check){
                 displayedMessage.setText(getString(R.string.check));
             }
             else if (resigned) {
-                askSave();
                 displayedMessage.setText(getString(R.string.resigned));
+                gameStart = false;
+                askSave();
+            }
+            else{
+                if (blackTurn){
+                    turnCountText.setText(getString(R.string.blackTurn));
+                }
+                else{
+                    turnCountText.setText(getString(R.string.whiteTurn));
+                }
             }
         }
         else{//Set winner
             gameStart = false;
-            askSave();
             turnCountText.setText(getString(currentGame.winner));
             displayedMessage.setText(getString(R.string.checkmate));
+            askSave();
         }
     }
 
@@ -138,8 +137,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             replayStarted = false;
-            Button replayMove = findViewById(R.id.replayMove);
-            replayMove.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -204,43 +201,42 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void undo(View view) {
-        if (!undone) {//Make sure you're only undoing one move
-            //Return turn back to past turn
-            blackTurn = !blackTurn;
-            setTurnCount();
-            moves = undoMoves;
+        if (gameStart) {
+            if (!undone) {//Make sure you're only undoing one move
+                //Return turn back to past turn
+                blackTurn = !blackTurn;
+                setTurnCount();
+                moves = undoMoves;
 
-            //Paste old board state
-            try{
-                copytoCurrent();
-            }
-            catch (ClassNotFoundException | IOException e) {
-                e.printStackTrace();
-            }
+                //Paste old board state
+                try {
+                    copytoCurrent();
+                } catch (ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
 
-            //Restore pieces back to old values
-            FrameLayout oldFirst = findViewById(first);
-            FrameLayout oldSecond = findViewById(second);
-            oldSecond.removeView(firstPiece);
-            oldFirst.addView(firstPiece);
+                //Restore pieces back to old values
+                FrameLayout oldFirst = findViewById(first);
+                FrameLayout oldSecond = findViewById(second);
+                oldSecond.removeView(firstPiece);
+                oldFirst.addView(firstPiece);
 
-            //Checking if the square it went to was originally empty
-            if (secondPiece != null) {
-                oldFirst.removeView(secondPiece);
-                oldSecond.addView(secondPiece);
-            } else {
-                oldSecond.removeAllViews();
+                //Checking if the square it went to was originally empty
+                if (secondPiece != null) {
+                    oldFirst.removeView(secondPiece);
+                    oldSecond.addView(secondPiece);
+                } else {
+                    oldSecond.removeAllViews();
+                }
             }
+            undone = true;
         }
-        undone = true;
     }
 
     public void replayMove(View view) {
-        if (replayStarted) {
-            if (replayIndex < replayMoves.length){
-                oneStep(replayMoves[replayIndex]);
-                replayIndex++;
-            }
+        if (replayIndex < replayMoves.length){
+            oneStep(replayMoves[replayIndex]);
+            replayIndex++;
         }
     }
 
@@ -322,6 +318,8 @@ public class MainActivity extends AppCompatActivity {
             //Draw
             drawAccepted = true;
             displayedMessage.setText("");
+            Button replayMove = findViewById(R.id.replayMove);
+            replayMove.setVisibility(View.GONE);
             setTurnCount();
         }
         else if (myMove.substring(0, 2).equals("re")){
@@ -336,6 +334,8 @@ public class MainActivity extends AppCompatActivity {
             }
             gameStart = false;
             resigned = true;
+            Button replayMove = findViewById(R.id.replayMove);
+            replayMove.setVisibility(View.GONE);
             setTurnCount();
         }
         else {
@@ -708,31 +708,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void draw(View view){
-        if (drawOffered){
-            drawAccepted = true;
-            gameStart = false;
-            moves +="dr aw"+"\r";
+        if (gameStart) {
+            if (drawOffered) {
+                drawAccepted = true;
+                gameStart = false;
+                moves += "dr aw" + "\r";
+            } else {
+                displayedMessage.setText(getString(R.string.offerDraw));
+                drawOffered = true;
+            }
+            setTurnCount();
         }
-        else{
-            displayedMessage.setText(getString(R.string.offerDraw));
-            drawOffered = true;
-        }
-        setTurnCount();
     }
 
     public void resign(View view){
-        moves +="re sn"+"\r";
-        if (blackTurn){
-            //White win
-            turnCountText.setText(getString(R.string.whiteWin));
+        if (gameStart) {
+            if (blackTurn) {
+                //White win
+                turnCountText.setText(getString(R.string.whiteWin));
+            } else {
+                //Black win
+                turnCountText.setText(getString(R.string.blackWin));
+            }
+            gameStart = false;
+            resigned = true;
+            moves += "re sn" + "\r";
+            setTurnCount();
         }
-        else{
-            //Black win
-            turnCountText.setText(getString(R.string.blackWin));
-        }
-        gameStart = false;
-        resigned = true;
-        setTurnCount();
     }
 
     private void setNameLoad() {
@@ -768,14 +770,20 @@ public class MainActivity extends AppCompatActivity {
     private void loader() {
         Board loaded = new Board();
         File load = new File ("/data/user/0/chess.androchess/files/"+loadname);
-        blackTurn = false;
         System.out.println(load.getAbsolutePath());
         try (FileInputStream fis = new FileInputStream(load)) {
-            Toast.makeText(this, loadname + " loaded", Toast.LENGTH_SHORT).show();
             Button replayMove = findViewById(R.id.replayMove);
             replayMove.setVisibility(View.VISIBLE);
-            replayStarted = true;
+
+            Toast.makeText(this, loadname + " loaded", Toast.LENGTH_SHORT).show();
             displayedMessage.setText("");
+            replayStarted = true;
+            resigned = false;
+            drawAccepted = false;
+            drawOffered = false;
+            undone = true;
+            gameStart = false;
+            blackTurn = false;
             replayIndex = 0;
             String input = "";
             char content;
@@ -804,7 +812,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(this, "Game not found", Toast.LENGTH_SHORT).show();
             Button replayMove = findViewById(R.id.replayMove);
-            replayMove.setVisibility(View.INVISIBLE);
+            replayMove.setVisibility(View.GONE);
             e.printStackTrace();
         }
     }
