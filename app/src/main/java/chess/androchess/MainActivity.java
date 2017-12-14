@@ -161,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             //Return turn back to past turn
             blackTurn = !blackTurn;
             setTurnCount();
+            moves = undoMoves;
 
             //Paste old board state
             try{
@@ -192,18 +193,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "No Game Loaded", Toast.LENGTH_SHORT).show();
         } else {
             for(int i = 0; i < replayMoves.length; i++) {
-               /* selectedMove = replayMoves[i];
-                first = selectedMove.substring(0,2);
-                second = selectedMove.substring(3);
-                firstPiece = (ImageView)selected.getChildAt(0);
-                secondPiece = (ImageView) current.getChildAt(0);
-
-                //Remove everything in the square its moving from
-                first.;
-
-                //Draw new piece in the selected square
-                current.removeAllViews();
-                current.addView(movedPiece);*/
+               oneStep(replayMoves[i]);
             }
         }
     }
@@ -282,31 +272,106 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void oneStep(String myMove){
-        boolean turn = currentGame.move(myMove, blackTurn);
-        if (turn) {
-            //Successful move
-            String firstBox = myMove.substring(0, 2);
-            String secondBox = myMove.substring(3);
-            //Remove everything in the square its moving from
-            moved.removeAllViews();
-
-            //Draw new piece in the selected square
-            current.removeAllViews();
-            current.addView(movedPiece);
-
-            //Change turn
-            blackTurn = !blackTurn;
+        if (myMove.substring(0, 2).equals("dr")){
+            //Draw
+            drawAccepted = true;
+            displayedMessage.setText("");
             setTurnCount();
-
-            //Set variables
-            undone = false;
-            drawOffered = false;
-            if (gameStart) {
-                displayedMessage.setText("");
-            }
-            System.out.println("Successful Move");
-            moves+=(selectedMove+"\r");
         }
+        else if (myMove.substring(0, 2).equals("re")){
+            //Resigned
+            if (blackTurn){
+                //White win
+                currentGame.winner = R.string.whiteWin;
+            }
+            else{
+                //Black win
+                currentGame.winner = R.string.blackWin;
+            }
+            gameStart = false;
+            resigned = true;
+            setTurnCount();
+        }
+        else {
+            boolean turn = currentGame.move(myMove, blackTurn);
+            if (turn) {
+                //Successful move
+                String firstBox = myMove.substring(0, 2);
+                String secondBox = myMove.substring(3);
+                FrameLayout oldBox = findFrame(firstBox);
+                FrameLayout newBox = findFrame(secondBox);
+                //Remove everything in the square its moving from
+                View oldPiece = oldBox.getChildAt(0);
+                oldBox.removeAllViews();
+
+                //Draw new piece in the selected square
+                newBox.removeAllViews();
+                newBox.addView(oldPiece);
+
+                //Change turn
+                blackTurn = !blackTurn;
+                setTurnCount();
+
+                //Set variables
+                if (gameStart) {
+                    displayedMessage.setText("");
+                }
+            }
+        }
+    }
+
+    public FrameLayout findFrame(String myTag){
+        TableRow myFrame;
+        myFrame = findViewById(R.id.zero);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.one);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.two);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.three);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.four);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.five);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.six);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+        myFrame = findViewById(R.id.seven);
+        for (int i = 0; i < 8; i++){
+            if (myFrame.getChildAt(i).getTag().toString().equals(myTag)){
+                return (FrameLayout)myFrame.getChildAt(i);
+            }
+        }
+
+        return null;
     }
 
     private void getNameSave() {
@@ -599,6 +664,7 @@ public class MainActivity extends AppCompatActivity {
         if (drawOffered){
             drawAccepted = true;
             gameStart = false;
+            moves +="dr aw\r";
         }
         else{
             displayedMessage.setText(getString(R.string.offerDraw));
@@ -608,6 +674,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void resign(View view){
+        moves +="re sn\r";
         if (blackTurn){
             //White win
             currentGame.winner = R.string.whiteWin;
