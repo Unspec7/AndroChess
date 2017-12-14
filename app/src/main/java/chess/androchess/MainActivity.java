@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     boolean drawAccepted;
     boolean undone;
     boolean resigned;
+    boolean replayStarted = false;
 
     FrameLayout selected;
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView selector;
 
     String moves = "";
+    String [] replayMoves;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
         gameStart = true;
         drawOffered = false;
         drawAccepted = false;
+        replayStarted = false;
         undone = false;
         displayedMessage.setText("");
 
@@ -89,47 +92,8 @@ public class MainActivity extends AppCompatActivity {
         createBlackPieces();
         setTurnCount();
 
-        //Recoding game
-        /*try {
-            PrintWriter writer = new PrintWriter("a.txt");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        File directory = new File(Environment.getExternalStorageDirectory()+File.separator+"saved");
-        directory.mkdir();
-        recording = new File (directory.getAbsolutePath()+"/a.txt");
-        */
     }
 
-    /*public void record()  {
-            //Scanner scanner = new Scanner();
-            System.out.println("Do you wish to save this game? (y/n)");
-            String answer = scanner.nextLine();
-
-
-            while(true){
-                if (answer.equals("y")) {
-                    System.out.print("Save Recording As: ");
-                    //File newFile = new File (scanner.nextLine().concat(".txt"));
-
-                    while (!success) {
-                        System.out.println("Error");
-                        newFile = new File (scanner.nextLine().concat(".txt"));
-                        success = recording.renameTo(newFile);
-                    }
-                    recording.renameTo(newFile);
-                    break;
-                } else if (answer.equals("n")){
-                    System.out.println("Game Not Saved");
-                    break;
-                }
-                else {
-                    System.out.println("Invalid");
-                    answer = scanner.nextLine();
-                }
-            }
-            recording.delete();
-    }*/
 
     public void setTurnCount(){
         if (!currentGame.checkmateDetected){
@@ -220,6 +184,27 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         undone = true;
+    }
+
+    public void replayMove(View view) {
+        if (!replayStarted) {
+            Toast.makeText(this, "No Game Loaded", Toast.LENGTH_SHORT).show();
+        } else {
+            for(int i = 0; i < replayMoves.length; i++) {
+               /* selectedMove = replayMoves[i];
+                first = selectedMove.substring(0,2);
+                second = selectedMove.substring(3);
+                firstPiece = (ImageView)selected.getChildAt(0);
+                secondPiece = (ImageView) current.getChildAt(0);
+
+                //Remove everything in the square its moving from
+                first.;
+
+                //Draw new piece in the selected square
+                current.removeAllViews();
+                current.addView(movedPiece);*/
+            }
+        }
     }
 
     public void sendID(View view) {
@@ -629,6 +614,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void loadReplay(View view) {
         loadname = "";
+        replayMoves = new String[0];
         setNameLoad();
         System.out.println(loadname);
     }
@@ -650,6 +636,7 @@ public class MainActivity extends AppCompatActivity {
                 if (content == '\r') {
                     System.out.println(input);
                     loaded.move(input, blackTurn);
+
                     if (blackTurn) {
                         blackTurn = false;
                     } else {
@@ -658,6 +645,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
+            replayMoves = input.split("\r");
+            clearBoard();
+            createWhitePieces();
+            createBlackPieces();
+            currentGame = new Board();
+            setTurnCount();
 
         } catch (IOException e) {
             Toast.makeText(this, "File Not Found", Toast.LENGTH_SHORT).show();
