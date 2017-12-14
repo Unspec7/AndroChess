@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void replayMove(View view) {
         if (!replayStarted) {
-            Toast.makeText(this, "No Game Loaded", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No game loaded", Toast.LENGTH_SHORT).show();
         } else {
             for(int i = 0; i < replayMoves.length; i++) {
                oneStep(replayMoves[i]);
@@ -723,6 +723,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 loadname = input.getText().toString()+".txt";
+                //HERE1
                 loader();
             }
         });
@@ -742,6 +743,7 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(loadname);
     }
     private void loader() {
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
         Board loaded = new Board();
         File load = new File ("/data/user/0/chess.androchess/files/"+loadname);
         boolean blackTurn = false;
@@ -756,16 +758,12 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //JEFF LOOK HERE
                 input+=Character.toString(content);
-                if (content == '\r') {
+                /*if (content == '\r') {
                     System.out.println(input);
                     loaded.move(input, blackTurn);
 
-                    if (blackTurn) {
-                        blackTurn = false;
-                    } else {
-                        blackTurn = true;
-                    }
-                }
+                    blackTurn = !blackTurn;
+                }*/
             }
 
             replayMoves = input.split("\r");
@@ -776,7 +774,7 @@ public class MainActivity extends AppCompatActivity {
             setTurnCount();
 
         } catch (IOException e) {
-            Toast.makeText(this, "File Not Found", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Game not found", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
