@@ -15,4 +15,10 @@
         android:textColor="@android:color/background_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:layout_width="352dp"
+        android:layout_height="444dp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="51dp" />
 </android.support.constraint.ConstraintLayout>
