@@ -98,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
+        android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -107,6 +108,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="16dp"
+        android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toTopOf="@+id/turnCounter"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -879,6 +881,7 @@
         android:layout_marginEnd="8dp"
         android:onClick="replayMove"
         android:text="@string/oneMove"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/loadReplay" />
 
