@@ -277,6 +277,35 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    public void oneStep(String myMove){
+        boolean turn = currentGame.move(myMove, blackTurn);
+        if (turn) {
+            //Successful move
+            String firstBox = myMove.substring(0, 2);
+            String secondBox = myMove.substring(3);
+            //Remove everything in the square its moving from
+            moved.removeAllViews();
+
+            //Draw new piece in the selected square
+            current.removeAllViews();
+            current.addView(movedPiece);
+
+            //Change turn
+            blackTurn = !blackTurn;
+            setTurnCount();
+
+            //Set variables
+            undone = false;
+            drawOffered = false;
+            if (gameStart) {
+                displayedMessage.setText("");
+            }
+            System.out.println("Successful Move");
+            moves+=(selectedMove+"\r");
+        }
+    }
+
     private void getNameSave() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Save");
