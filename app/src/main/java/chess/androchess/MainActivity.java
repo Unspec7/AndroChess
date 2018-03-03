@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void promote() {
+    /*public void promote() {
         AlertDialog.Builder b = new AlertDialog.Builder(this);
         View mView = getLayoutInflater().inflate(R.layout.activity_main, null);
         b.setTitle("Promote: ");
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         b.show();
-    }
+    }*/
 
     public void copytoUndo() throws IOException, ClassNotFoundException{
         //Copy
